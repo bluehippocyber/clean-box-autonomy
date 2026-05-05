@@ -5,10 +5,10 @@ import logo from "@/assets/cleanbox-logo.png";
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Technology", href: "#technology" },
-  { label: "Security", href: "#security" },
-  { label: "Facility Solutions", href: "#solutions" },
-  { label: "Founder's Portal", href: "#founder" },
+  { label: "Our Technology", href: "#technology" },
+  { label: "Safety Specs", href: "#safety" },
+  { label: "Facility ROI", href: "#roi" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -24,12 +24,12 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-soft" : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-between h-18 py-4">
+      <nav className="container flex items-center justify-between h-20 py-4">
         <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="Clean Box Enterprise" className="h-8 w-auto" />
+          <img src={logo} alt="Clean Box Enterprise" className="h-9 w-auto" />
         </a>
 
         <div className="hidden lg:flex items-center gap-8">
@@ -37,16 +37,17 @@ export const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
+              className="text-sm font-medium text-foreground/75 hover:text-primary transition-colors"
             >
               {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all" />
             </a>
           ))}
         </div>
 
         <div className="hidden lg:block">
-          <Button variant="cyber" size="sm">Request Quote</Button>
+          <Button variant="cta" size="default" asChild>
+            <a href="#contact">Get a Quote</a>
+          </Button>
         </div>
 
         <button
@@ -71,7 +72,9 @@ export const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <Button variant="cyber" className="mt-2">Request Quote</Button>
+            <Button variant="cta" className="mt-2" asChild>
+              <a href="#contact" onClick={() => setOpen(false)}>Get a Quote</a>
+            </Button>
           </div>
         </div>
       )}
