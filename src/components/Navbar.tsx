@@ -5,9 +5,10 @@ import logo from "@/assets/cleanbox-logo.png";
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Our Technology", href: "#technology" },
-  { label: "Safety Specs", href: "#safety" },
-  { label: "Facility ROI", href: "#roi" },
+  { label: "Products", href: "#products" },
+  { label: "Technology", href: "#technology" },
+  { label: "Privacy", href: "#safety" },
+  { label: "ROI", href: "#roi" },
   { label: "Contact", href: "#contact" },
 ];
 
