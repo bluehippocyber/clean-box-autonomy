@@ -17,10 +17,10 @@ export const Contact = () => {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({
     facilityName: "",
-    facilityType: "nursing-home",
-    residents: "",
+    facilityType: "skilled-nursing",
+    units: "1-5",
     interest: "consultation",
-    timeline: "30-days",
+    timeline: "asap",
     name: "",
     email: "",
     phone: "",
@@ -39,8 +39,8 @@ export const Contact = () => {
     toast.success("Request received. Terrance King will be in touch within 24 hours.");
     setStep(0);
     setData({
-      facilityName: "", facilityType: "nursing-home", residents: "", interest: "consultation",
-      timeline: "30-days", name: "", email: "", phone: "", notes: "",
+      facilityName: "", facilityType: "skilled-nursing", units: "1-5", interest: "consultation",
+      timeline: "asap", name: "", email: "", phone: "", notes: "",
     });
   };
 
@@ -92,7 +92,7 @@ export const Contact = () => {
                 </Field>
                 <Field label="Facility Type">
                   <RadioGroup value={data.facilityType} onValueChange={(v) => update("facilityType", v)} className="grid sm:grid-cols-2 gap-3">
-                    {["nursing-home", "assisted-living", "hospital", "private-residence"].map((t) => (
+                    {["skilled-nursing", "hospital", "rehab", "private-residence"].map((t) => (
                       <label key={t} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${data.facilityType === t ? "border-primary bg-primary-soft" : "border-border hover:border-primary/40"}`}>
                         <RadioGroupItem value={t} />
                         <span className="text-sm capitalize">{t.replace("-", " ")}</span>
@@ -100,8 +100,19 @@ export const Contact = () => {
                     ))}
                   </RadioGroup>
                 </Field>
-                <Field label="Number of Residents">
-                  <Input type="number" value={data.residents} onChange={(e) => update("residents", e.target.value)} placeholder="60" />
+                <Field label="Unit Requirement">
+                  <RadioGroup value={data.units} onValueChange={(v) => update("units", v)} className="grid grid-cols-3 gap-3">
+                    {[
+                      { v: "1-5", l: "1 – 5 units" },
+                      { v: "10-25", l: "10 – 25 units" },
+                      { v: "50+", l: "50+ fleet" },
+                    ].map((o) => (
+                      <label key={o.v} className={`flex items-center justify-center text-center p-3 rounded-lg border cursor-pointer text-sm transition-colors ${data.units === o.v ? "border-primary bg-primary-soft text-primary-deep font-semibold" : "border-border hover:border-primary/40"}`}>
+                        <RadioGroupItem value={o.v} className="sr-only" />
+                        {o.l}
+                      </label>
+                    ))}
+                  </RadioGroup>
                 </Field>
               </div>
             )}
@@ -123,11 +134,11 @@ export const Contact = () => {
                     ))}
                   </RadioGroup>
                 </Field>
-                <Field label="Timeline">
+                <Field label="Installation Timeline">
                   <RadioGroup value={data.timeline} onValueChange={(v) => update("timeline", v)} className="grid grid-cols-3 gap-3">
                     {[
-                      { v: "30-days", l: "< 30 days" },
-                      { v: "90-days", l: "1-3 months" },
+                      { v: "asap", l: "ASAP" },
+                      { v: "6-12", l: "6 – 12 months" },
                       { v: "exploring", l: "Exploring" },
                     ].map((o) => (
                       <label key={o.v} className={`flex items-center justify-center p-3 rounded-lg border cursor-pointer text-sm transition-colors ${data.timeline === o.v ? "border-primary bg-primary-soft text-primary-deep font-semibold" : "border-border hover:border-primary/40"}`}>

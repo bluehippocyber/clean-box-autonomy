@@ -1,28 +1,28 @@
-import { Cpu, Droplets, Sparkles, Box } from "lucide-react";
+import { Cpu, Sparkles, Box, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Box,
     title: "Anodized Aluminum Frame",
-    desc: "Aerospace-grade, corrosion-resistant chassis built to withstand decades of daily use in clinical environments.",
+    desc: "Lightweight, medical-grade and rust-proof. Aerospace-grade chassis built to withstand decades of clinical use.",
     spec: "6061-T6 ALLOY",
   },
   {
-    icon: Sparkles,
-    title: "Soft-Bristle Exfoliating Brushes",
-    desc: "Medical-grade silicone bristles deliver gentle, full-body cleansing while preserving sensitive skin.",
-    spec: "32 PRESSURE ZONES",
+    icon: Shield,
+    title: "Polypropylene Enclosure",
+    desc: "Moisture-barrier encasing for total electrical isolation. Chemical-resistant, sealed for high-pressure sanitization cycles.",
+    spec: "IP66 RATED",
   },
   {
-    icon: Droplets,
-    title: "Dual-Tank Water System",
-    desc: "Independent fresh and greywater tanks with closed-loop sanitization eliminate cross-contamination entirely.",
-    spec: "12 GAL CAPACITY",
+    icon: Sparkles,
+    title: "Soft-Exfoliation Brushes",
+    desc: "Proprietary medical-grade bristles designed to mimic human touch while delivering 100% sanitization across 24 jet zones.",
+    spec: "24 JET ZONES",
   },
   {
     icon: Cpu,
     title: "Adaptive Care Controller",
-    desc: "Onboard processor coordinates cycle, temperature, and pressure based on each user's care profile.",
+    desc: "Onboard processor coordinates jet pressure, water temperature, drying cycle, aroma and chromotherapy per care profile.",
     spec: "ARM CORTEX-A78",
   },
 ];
@@ -35,7 +35,7 @@ export const Engineering = () => {
       <div className="container relative">
         <div className="max-w-2xl mb-16">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">
-            01 / Engineering of Care
+            01 / Engineering Deep-Dive
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
             Precision hardware,
