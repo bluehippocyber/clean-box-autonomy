@@ -170,10 +170,10 @@ export const Contact = () => {
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
               <Button type="button" variant="outlineRed" size="lg" className="flex-1" asChild>
-                <a href="#contact">Book Consultation</a>
+                Book Consultation
               </Button>
               <Button type="button" variant="outline" size="lg" className="flex-1" asChild>
-                <a href="#contact">Request Demonstration</a>
+                Request Demonstration
               </Button>
             </div>
           </form>

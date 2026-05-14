@@ -1,8 +1,12 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import prototype from "@/assets/cleanbox-tsunami-hero.png";
 
 export const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-soft">
       <div className="absolute inset-0 blueprint-grid opacity-25 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
@@ -21,17 +25,15 @@ export const Hero = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Button variant="cta" size="xl" asChild>
-                <a href="#contact" className="group">
-                  Request Demo
-                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                </a>
+              <Button variant="cta" size="xl" onClick={scrollToContact} className="group cursor-pointer">
+                Request Demo
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outlineRed" size="xl" asChild>
-                <a href="#contact">Join Waitlist</a>
+              <Button variant="outlineRed" size="xl" onClick={scrollToContact} className="cursor-pointer">
+                Join Waitlist
               </Button>
-              <Button variant="outline" size="xl" asChild>
-                <a href="#contact">Buyer Inquiry</a>
+              <Button variant="outline" size="xl" onClick={scrollToContact} className="cursor-pointer">
+                Buyer Inquiry
               </Button>
             </div>
           </div>
