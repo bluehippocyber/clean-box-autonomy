@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const differentiators = [
   "Mission-driven innovation — every product decision starts with dignity",
@@ -20,6 +20,11 @@ const credibility = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
+  const goToContact = () => {
+    navigate("/");
+    setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 120);
+  };
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -156,17 +161,15 @@ const About = () => {
               We welcome conversations with healthcare leaders, strategic buyers, investors, distributors, and organizations seeking modern care solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" asChild>
-                <Link to="/#contact" className="group">
-                  Contact Our Team
-                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button variant="cta" size="xl" onClick={goToContact} className="group cursor-pointer">
+                Contact Our Team
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outlineRed" size="xl" asChild>
-                <Link to="/#contact">Book a Private Demo</Link>
+              <Button variant="outlineRed" size="xl" onClick={goToContact} className="cursor-pointer">
+                Book a Private Demo
               </Button>
-              <Button variant="outline" size="xl" asChild>
-                <Link to="/#contact">Partnership Inquiry</Link>
+              <Button variant="outline" size="xl" onClick={goToContact} className="cursor-pointer">
+                Partnership Inquiry
               </Button>
             </div>
           </div>

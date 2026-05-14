@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Building2, Home, Heart, Shield, Sparkles, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const industries = [
   {
@@ -44,6 +44,11 @@ const industries = [
 ];
 
 const Industries = () => {
+  const navigate = useNavigate();
+  const goToContact = () => {
+    navigate("/");
+    setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 120);
+  };
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -116,17 +121,15 @@ const Industries = () => {
               Whether you're a healthcare operator, government procurement officer, international distributor, or wellness innovator — let's explore what Clean Box can do in your environment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" asChild>
-                <Link to="/#contact" className="group">
-                  Request Industry Consultation
-                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button variant="cta" size="xl" onClick={goToContact} className="group cursor-pointer">
+                Request Industry Consultation
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outlineRed" size="xl" asChild>
-                <Link to="/#contact">Become a Distributor</Link>
+              <Button variant="outlineRed" size="xl" onClick={goToContact} className="cursor-pointer">
+                Become a Distributor
               </Button>
-              <Button variant="outline" size="xl" asChild>
-                <Link to="/#contact">Commercial Buyer Inquiry</Link>
+              <Button variant="outline" size="xl" onClick={goToContact} className="cursor-pointer">
+                Commercial Buyer Inquiry
               </Button>
             </div>
           </div>
