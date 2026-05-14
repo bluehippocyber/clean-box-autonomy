@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/cleanbox-logo.png";
 
 const links = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/#products" },
-  { label: "Industries", href: "/industries" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", href: "/", type: "route" },
+  { label: "Products", href: "products", type: "scroll" },
+  { label: "Industries", href: "/industries", type: "route" },
+  { label: "About", href: "/about", type: "route" },
+  { label: "Contact", href: "contact", type: "scroll" },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,18 +24,40 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return location.pathname.startsWith(href.replace("/#", "/"));
+  const scrollToSection = (id: string) => {
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  const NavItem = ({ label, href }: { label: string; href: string }) => {
-    const active = isActive(href);
+  const isActive = (href: string, type: string) => {
+    if (type === "scroll") return false;
+    if (href === "/") return location.pathname === "/";
+    return location.pathname.startsWith(href);
+  };
+
+  const NavItem = ({ label, href, type }: { label: string; href: string; type: string }) => {
+    const active = isActive(href, type);
     const cls = `text-sm font-medium transition-colors ${active ? "text-primary" : "text-foreground/75 hover:text-primary"}`;
-    if (href.startsWith("/") && !href.includes("#")) {
-      return <Link to={href} className={cls} onClick={() => setOpen(false)}>{label}</Link>;
+    if (type === "scroll") {
+      return (
+        <button className={cls} onClick={() => scrollToSection(href)}>
+          {label}
+        </button>
+      );
     }
-    return <a href={href} className={cls} onClick={() => setOpen(false)}>{label}</a>;
+    return (
+      <Link to={href} className={cls} onClick={() => setOpen(false)}>
+        {label}
+      </Link>
+    );
   };
 
   return (
@@ -49,8 +72,8 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden lg:block">
-          <Button variant="cta" size="default" asChild>
-            <a href="/#contact">Request Demo</a>
+          <Button variant="cta" size="default" onClick={() => scrollToSection("contact")}>
+            Request Demo
           </Button>
         </div>
 
@@ -63,8 +86,8 @@ export const Navbar = () => {
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="container py-6 flex flex-col gap-4">
             {links.map((l) => <NavItem key={l.href} {...l} />)}
-            <Button variant="cta" className="mt-2" asChild>
-              <a href="/#contact" onClick={() => setOpen(false)}>Request Demo</a>
+            <Button variant="cta" className="mt-2" onClick={() => scrollToSection("contact")}>
+              Request Demo
             </Button>
           </div>
         </div>
