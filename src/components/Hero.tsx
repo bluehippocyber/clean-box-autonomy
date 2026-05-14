@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import heroVideo from "@/assets/hero-video.mp4";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import prototype from "@/assets/cleanbox-tsunami-hero.png";
@@ -11,6 +12,19 @@ export const Hero = () => {
     <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-soft">
       <div className="absolute inset-0 blueprint-grid opacity-25 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <div className="absolute top-20 -right-40 w-[520px] h-[520px] rounded-full bg-primary/5 blur-3xl" />
+
+      {/* Hero Video Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+      </div>
 
       <div className="container relative">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
