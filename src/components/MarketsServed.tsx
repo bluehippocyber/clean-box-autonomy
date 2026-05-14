@@ -28,7 +28,7 @@ export const MarketsServed = () => {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {markets.map(({ icon: Icon, label }) => (
             <div key={label} className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-secondary/50 border border-border hover:border-primary/30 hover:bg-primary-soft hover:shadow-card transition-all duration-300 text-center">
-              <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
                 <Icon className="w-5 h-5 text-foreground/60 group-hover:text-white transition-colors" />
               </div>
               <span className="text-sm font-semibold text-foreground/80 group-hover:text-primary transition-colors leading-tight">{label}</span>

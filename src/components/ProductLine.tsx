@@ -39,9 +39,9 @@ export const ProductLine = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Tsunami */}
-          <article className="group relative rounded-3xl bg-white border border-border shadow-card overflow-hidden flex flex-col">
+          <article className="group relative rounded-3xl bg-card border border-border shadow-card overflow-hidden flex flex-col">
             <div className="relative aspect-[4/3] bg-secondary overflow-hidden">
               <img src={tsunami} alt="Clean Box Tsunami" className="w-full h-full object-cover" />
               <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider shadow-red">
@@ -75,7 +75,7 @@ export const ProductLine = () => {
           </article>
 
           {/* Wave */}
-          <article className="group relative rounded-3xl bg-white border border-border shadow-card overflow-hidden flex flex-col">
+          <article className="group relative rounded-3xl bg-card border border-border shadow-card overflow-hidden flex flex-col">
             <div className="relative aspect-[4/3] bg-foreground overflow-hidden flex items-center justify-center">
               <div className="text-center px-8">
                 <div className="text-7xl font-black text-white/10 tracking-tight">WAVE</div>
@@ -112,7 +112,7 @@ export const ProductLine = () => {
 
         {/* Compare strip */}
         <div className="mt-12 grid md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-border bg-white p-6 flex items-center gap-4">
+          <div className="rounded-2xl border border-border bg-card p-6 flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <div className="w-3 h-3 rounded-full bg-primary" />
             </div>
@@ -121,7 +121,7 @@ export const ProductLine = () => {
               <div className="text-xs text-muted-foreground mt-0.5">Permanent power · Daily efficiency · Operational workhorse</div>
             </div>
           </div>
-          <div className="rounded-2xl border border-border bg-white p-6 flex items-center gap-4">
+          <div className="rounded-2xl border border-border bg-card p-6 flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
               <div className="w-3 h-3 rounded-full bg-foreground" />
             </div>

@@ -53,7 +53,7 @@ export const ProblemSolution = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {solutions.map((s, i) => (
-              <div key={i} className="p-7 rounded-2xl bg-white border border-border shadow-card">
+              <div key={i} className="p-7 rounded-2xl bg-card border border-border shadow-card">
                 <CheckCircle className="w-6 h-6 text-primary mb-4" />
                 <p className="text-sm text-foreground/80 leading-relaxed">{s}</p>
               </div>

@@ -1,81 +1,112 @@
-import { ArrowRight } from "lucide-react";
-import heroVideo from "@/assets/hero-video.mp4";
-import { useNavigate } from "react-router-dom";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import prototype from "@/assets/cleanbox-tsunami-hero.png";
+import showroomVideo from "@/assets/showroom-hero.mp4";
+
+// STRIPE RESERVE LINK — update when live
+const STRIPE_RESERVE_URL = "https://buy.stripe.com/cleanbox-reserve-360";
 
 export const Hero = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
-  return (
-    <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-soft">
-      <div className="absolute inset-0 blueprint-grid opacity-25 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-      <div className="absolute top-20 -right-40 w-[520px] h-[520px] rounded-full bg-primary/5 blur-3xl" />
 
-      {/* Hero Video Background */}
-      <div className="absolute inset-0 overflow-hidden">
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+    >
+      {/* Showroom video background */}
+      <div className="absolute inset-0">
         <video
-          src={heroVideo}
+          src={showroomVideo}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+        {/* Dark overlay — left heavy so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
       </div>
 
-      <div className="container relative">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          <div className="lg:col-span-6 animate-fade-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
-              The Future of Safe{" "}
-              <span className="text-primary">Independent Bathing.</span>
-            </h1>
-
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Clean Box is automated bathing technology designed to restore dignity, improve safety, and modernize hygiene care for homes, facilities, and institutions worldwide.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Button variant="cta" size="xl" onClick={scrollToContact} className="group cursor-pointer">
-                Request Demo
-                <ArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outlineRed" size="xl" onClick={scrollToContact} className="cursor-pointer">
-                Join Waitlist
-              </Button>
-              <Button variant="outline" size="xl" onClick={scrollToContact} className="cursor-pointer">
-                Buyer Inquiry
-              </Button>
-            </div>
+      <div className="container relative z-10 py-16 lg:py-24">
+        <div className="max-w-2xl">
+          {/* Label */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-primary">
+              Now Accepting Reservations
+            </span>
           </div>
 
-          <div className="lg:col-span-6 animate-fade-up" style={{ animationDelay: "0.15s" }}>
-            <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-red opacity-10 blur-3xl rounded-full" />
-              <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-border bg-white">
-                <img
-                  src={prototype}
-                  alt="Clean Box Tsunami — automated bathing system in a wellness suite"
-                  width={1280}
-                  height={1280}
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-elevated border border-border animate-float">
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Model</div>
-                <div className="text-sm font-bold text-foreground">Clean Box Tsunami</div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-primary rounded-xl px-5 py-3 shadow-red text-primary-foreground">
-                <div className="text-[10px] font-semibold uppercase tracking-wider opacity-80">Status</div>
-                <div className="text-sm font-bold">Live Prototype</div>
-              </div>
-            </div>
+          {/* Locked headline */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
+            The Future of Safe{" "}
+            <span className="text-primary">Independent Bathing.</span>
+          </h1>
+
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            Clean Box is automated bathing technology designed to restore dignity, improve safety, and modernize hygiene care for homes, facilities, and institutions worldwide.
+          </p>
+
+          {/* CTA row */}
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              variant="cta"
+              size="xl"
+              onClick={scrollToContact}
+              className="group cursor-pointer min-h-[52px]"
+            >
+              Request Demo
+              <ArrowRight className="transition-transform group-hover:translate-x-1" />
+            </Button>
+
+            {/* Reserve Now — Stripe */}
+            <Button
+              size="xl"
+              asChild
+              className="min-h-[52px] bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all"
+            >
+              <a
+                href={STRIPE_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <span className="w-2 h-2 rounded-full bg-green-400" />
+                Reserve Now — $360
+              </a>
+            </Button>
+
+            <Button
+              variant="outlineRed"
+              size="xl"
+              onClick={scrollToContact}
+              className="cursor-pointer min-h-[52px]"
+            >
+              Join Waitlist
+            </Button>
+
+            <Button
+              variant="outline"
+              size="xl"
+              onClick={scrollToContact}
+              className="cursor-pointer min-h-[52px] border-white/20 text-white/80 hover:bg-white/10"
+            >
+              Buyer Inquiry
+            </Button>
           </div>
+
+          {/* Trust line */}
+          <p className="mt-8 text-xs text-muted-foreground">
+            Featured at: University of Tampa · FAU Tech Runway · Investor Catalyst Hub · NARP
+          </p>
         </div>
       </div>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };

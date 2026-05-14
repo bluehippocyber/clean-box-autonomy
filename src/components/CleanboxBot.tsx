@@ -82,7 +82,7 @@ export const CleanboxBot = () => {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Open Cleanbox Assistant"
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-white border border-border flex items-center justify-center transition-transform hover:scale-105 ${
+        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center transition-transform hover:scale-105 ${
           open ? "" : "animate-bot-pulse"
         }`}
       >
@@ -99,7 +99,7 @@ export const CleanboxBot = () => {
           open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div className="rounded-2xl bg-white border border-border shadow-elevated overflow-hidden flex flex-col h-[520px] max-h-[70vh]">
+        <div className="rounded-2xl bg-card border border-border shadow-elevated overflow-hidden flex flex-col h-[520px] max-h-[70vh]">
           {/* Header */}
           <div className="flex items-center gap-3 p-4 bg-gradient-red text-primary-foreground">
             <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
@@ -122,7 +122,7 @@ export const CleanboxBot = () => {
                   className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === "user"
                       ? "bg-primary text-primary-foreground rounded-br-sm"
-                      : "bg-white border border-border text-foreground rounded-bl-sm"
+                      : "bg-card border border-border text-foreground rounded-bl-sm"
                   }`}
                 >
                   {m.text}
@@ -136,7 +136,7 @@ export const CleanboxBot = () => {
                   <button
                     key={s}
                     onClick={() => send(s)}
-                    className="text-left text-xs font-medium px-3 py-2 rounded-lg bg-white border border-border hover:border-primary/40 hover:text-primary transition-colors"
+                    className="text-left text-xs font-medium px-3 py-2 rounded-lg bg-card border border-border hover:border-primary/40 hover:text-primary transition-colors"
                   >
                     {s}
                   </button>
@@ -151,7 +151,7 @@ export const CleanboxBot = () => {
               e.preventDefault();
               send(input);
             }}
-            className="p-3 border-t border-border bg-white flex gap-2"
+            className="p-3 border-t border-border bg-card flex gap-2"
           >
             <input
               value={input}

@@ -11,56 +11,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    /* SHOWROOM PALETTE — dark luxury, high contrast, premium silver */
+    --background: 220 18% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 220 16% 10%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 220 16% 10%;
+    --popover-foreground: 0 0% 96%;
 
     /* Brand red — Cleanbox #CC0000 */
-    --primary: 0 100% 40%;
+    --primary: 0 100% 42%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 0 100% 96%;
+    --primary-soft: 0 100% 12%;
     --primary-deep: 0 100% 30%;
 
-    /* Logo tan/khaki accent */
-    --accent-tan: 35 38% 62%;
+    /* Premium silver accent */
+    --silver: 220 10% 70%;
+    --silver-bright: 220 10% 88%;
 
-    --secondary: 210 20% 97%;
-    --secondary-foreground: 220 15% 15%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 210 16% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 220 14% 13%;
+    --muted-foreground: 220 8% 55%;
 
-    --accent: 0 100% 96%;
-    --accent-foreground: 0 100% 32%;
+    --accent: 0 100% 12%;
+    --accent-foreground: 0 100% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 100% 40%;
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 0 100% 42%;
 
     --radius: 0.625rem;
 
-    /* Surfaces — #F8FAF9 soft slate */
-    --surface-soft: 150 14% 98%;
-    --surface-clinical: 150 14% 98%;
+    /* Showroom surfaces */
+    --surface-soft: 220 18% 9%;
+    --surface-clinical: 220 16% 11%;
 
     /* Gradients */
-    --gradient-red: linear-gradient(135deg, hsl(0 100% 40%), hsl(0 100% 30%));
-    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%), hsl(150 14% 98%));
-    --gradient-clinical: linear-gradient(180deg, hsl(150 14% 98%), hsl(0 0% 100%));
+    --gradient-red: linear-gradient(135deg, hsl(0 100% 42%), hsl(0 100% 30%));
+    --gradient-soft: linear-gradient(180deg, hsl(220 18% 7%), hsl(220 16% 10%));
+    --gradient-clinical: linear-gradient(180deg, hsl(220 16% 10%), hsl(220 18% 8%));
 
     /* Shadows */
-    --shadow-soft: 0 1px 3px hsl(220 15% 15% / 0.04), 0 4px 16px hsl(220 15% 15% / 0.04);
-    --shadow-card: 0 4px 24px hsl(220 15% 15% / 0.06);
-    --shadow-elevated: 0 20px 50px -12px hsl(220 15% 15% / 0.12);
-    --shadow-red: 0 8px 24px -6px hsl(0 100% 40% / 0.35);
+    --shadow-soft: 0 1px 3px hsl(0 0% 0% / 0.3), 0 4px 16px hsl(0 0% 0% / 0.2);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 20px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-red: 0 8px 24px -6px hsl(0 100% 42% / 0.5);
+    --shadow-silver: 0 0 20px hsl(220 10% 70% / 0.15);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -103,8 +106,8 @@
 @layer components {
   .blueprint-grid {
     background-image:
-      linear-gradient(hsl(220 15% 88%) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220 15% 88%) 1px, transparent 1px);
+      linear-gradient(hsl(220 14% 20%) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 14% 20%) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .dot-grid {
@@ -145,3 +148,24 @@
 .animate-float { animation: float 5s ease-in-out infinite; }
 .animate-bot-pulse { animation: bot-pulse 2.4s ease-in-out infinite; }
 .animate-marquee { animation: marquee 30s linear infinite; }
+
+  /* Showroom silver accent utilities */
+  .text-silver { color: hsl(var(--silver)); }
+  .text-silver-bright { color: hsl(var(--silver-bright)); }
+  .border-silver { border-color: hsl(var(--silver) / 0.3); }
+  .bg-silver-subtle { background-color: hsl(var(--silver) / 0.06); }
+  .shadow-silver { box-shadow: var(--shadow-silver); }
+
+  /* Showroom card — dark with silver border shimmer */
+  .card-showroom {
+    background: hsl(220 16% 10%);
+    border: 1px solid hsl(220 10% 70% / 0.15);
+    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.4);
+  }
+
+  /* Mobile touch targets */
+  @media (max-width: 768px) {
+    .btn-mobile { min-height: 48px; min-width: 48px; }
+    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+

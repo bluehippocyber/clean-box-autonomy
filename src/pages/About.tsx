@@ -82,7 +82,7 @@ const About = () => {
                   { num: "4", label: "Institutional Partners" },
                   { num: "1", label: "Mission: Restore Dignity" },
                 ].map(({ num, label }) => (
-                  <div key={label} className="p-6 rounded-2xl bg-white border border-border shadow-card text-center">
+                  <div key={label} className="p-6 rounded-2xl bg-card border border-border shadow-card text-center">
                     <div className="text-4xl font-bold text-primary mb-2">{num}</div>
                     <div className="text-sm text-muted-foreground">{label}</div>
                   </div>
@@ -137,7 +137,7 @@ const About = () => {
         </section>
 
         {/* Credibility */}
-        <section className="py-16 bg-white border-y border-border">
+        <section className="py-16 bg-card border-y border-border">
           <div className="container max-w-4xl">
             <div className="text-xs font-mono font-semibold uppercase tracking-widest text-muted-foreground mb-6">Featured Through</div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

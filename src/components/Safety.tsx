@@ -42,7 +42,7 @@ export const Safety = () => {
               locally on the Edge — no video or biometric data is ever transmitted to the cloud.
             </p>
 
-            <div className="mt-10 inline-flex items-center gap-3 px-5 py-4 rounded-xl bg-white border border-border shadow-soft">
+            <div className="mt-10 inline-flex items-center gap-3 px-5 py-4 rounded-xl bg-card border border-border shadow-soft">
               <div className="w-10 h-10 rounded-full bg-primary-soft flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5 text-primary" />
               </div>
@@ -57,7 +57,7 @@ export const Safety = () => {
             {safetyItems.map((s) => (
               <div
                 key={s.title}
-                className="p-6 rounded-2xl bg-white border border-border shadow-soft hover:shadow-card transition-shadow"
+                className="p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card transition-shadow"
               >
                 <div className="w-11 h-11 rounded-lg bg-primary-soft flex items-center justify-center mb-4">
                   <s.icon className="w-5 h-5 text-primary" />

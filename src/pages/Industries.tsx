@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, Building2, Home, Heart, Shield, Sparkles, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const industries = [
   {
@@ -54,10 +55,14 @@ const Industries = () => {
       <Navbar />
       <main className="pt-20">
 
-        {/* Hero */}
-        <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 bg-gradient-soft overflow-hidden">
-          <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-          <div className="container relative max-w-4xl">
+        {/* Hero — original hero video */}
+        <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20">
+          <div className="absolute inset-0">
+            <video src={heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+          </div>
+          <div className="container relative z-10 py-20 max-w-4xl">
             <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">Industries Served</div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
               One Innovation.{" "}
@@ -70,12 +75,12 @@ const Industries = () => {
         </section>
 
         {/* Industries Grid */}
-        <section className="py-24 lg:py-32 bg-white">
+        <section className="py-24 lg:py-32 bg-surface-clinical">
           <div className="container">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {industries.map(({ icon: Icon, title, markets, value }) => (
                 <div key={title} className="group p-8 rounded-2xl bg-secondary/30 border border-border hover:border-primary/30 hover:shadow-elevated hover:bg-white transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center mb-5 group-hover:bg-primary group-hover:border-primary transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center mb-5 group-hover:bg-primary group-hover:border-primary transition-colors">
                     <Icon className="w-5 h-5 text-foreground/60 group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{title}</h3>

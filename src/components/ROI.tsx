@@ -84,7 +84,7 @@ export const ROI = () => {
                 <Stat icon={DollarSign} label="Labor reduction" value="70%" />
               </div>
 
-              <Button size="lg" className="mt-8 w-full bg-white text-primary hover:bg-white/90" asChild>
+              <Button size="lg" className="mt-8 w-full bg-card text-primary hover:bg-white/90" asChild>
                 <a href="#contact">Save My Results</a>
               </Button>
             </div>

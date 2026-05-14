@@ -167,7 +167,7 @@ const Products = () => {
               <div className="p-5 text-sm font-bold text-primary border-l border-white/10">Tsunami</div>
             </div>
             {compareRows.map((row, i) => (
-              <div key={row.label} className={`grid grid-cols-3 ${i % 2 === 0 ? "bg-surface-clinical" : "bg-white"}`}>
+              <div key={row.label} className={`grid grid-cols-3 ${i % 2 === 0 ? "bg-surface-clinical" : "bg-card"}`}>
                 <div className="p-5 text-sm font-semibold text-foreground">{row.label}</div>
                 <div className="p-5 text-sm text-muted-foreground border-l border-border">{row.wave}</div>
                 <div className="p-5 text-sm text-muted-foreground border-l border-border">{row.tsunami}</div>

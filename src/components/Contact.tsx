@@ -41,7 +41,7 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-surface-clinical">
-      <div className="container">
+      <div className="container px-4 sm:px-6">
         {/* Hero */}
         <div className="max-w-3xl mx-auto text-center mb-14">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Contact</div>
@@ -61,7 +61,7 @@ export const Contact = () => {
             { icon: Users, title: "Strategic Partnerships", desc: "Distributors, healthcare networks, government buyers, wellness groups, and innovation partners welcome." },
             { icon: Mic, title: "Press & Speaking", desc: "Podcast appearances, media features, speaking opportunities, and founder interviews." },
           ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="p-6 rounded-2xl bg-white border border-border shadow-card">
+            <div key={title} className="p-6 rounded-2xl bg-card border border-border shadow-card">
               <Icon className="w-6 h-6 text-primary mb-3" />
               <div className="font-semibold text-foreground mb-2">{title}</div>
               <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
@@ -70,7 +70,7 @@ export const Contact = () => {
         </div>
 
         {/* Form */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-border shadow-elevated overflow-hidden">
+        <div className="max-w-3xl mx-auto bg-card rounded-3xl border border-border shadow-elevated overflow-hidden">
           {/* Tab switcher */}
           <div className="grid grid-cols-2 border-b border-border">
             {[
