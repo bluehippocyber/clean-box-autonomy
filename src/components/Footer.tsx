@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/cleanbox-logo.png";
 
 export const Footer = () => {
@@ -6,19 +7,24 @@ export const Footer = () => {
       <div className="container">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div>
-            <img src={logo} alt="Clean Box Enterprise" className="h-9 w-auto brightness-0 invert mb-4" />
+            <img src={logo} alt="Cleanbox" className="h-9 w-auto brightness-0 invert mb-4" />
             <p className="text-sm text-background/60 max-w-xs">
               The future of personal care, engineered for dignity.
+            </p>
+            <p className="mt-3 text-sm text-background/50">
+              <a href="mailto:T.King@cleanboxent.com" className="hover:text-primary transition-colors">
+                T.King@cleanboxent.com
+              </a>
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 md:col-span-2 md:justify-self-end text-sm">
             <div>
               <div className="font-semibold mb-3">Company</div>
               <ul className="space-y-2 text-background/70">
-                <li><a href="#technology" className="hover:text-primary transition-colors">Technology</a></li>
-                <li><a href="#safety" className="hover:text-primary transition-colors">Security</a></li>
-                <li><a href="#roi" className="hover:text-primary transition-colors">ROI Portal</a></li>
-                <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
+                <li><Link to="/industries" className="hover:text-primary transition-colors">Industries</Link></li>
+                <li><a href="/#products" className="hover:text-primary transition-colors">Products</a></li>
+                <li><a href="/#contact" className="hover:text-primary transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
@@ -32,9 +38,9 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-background/10 flex flex-col md:flex-row gap-3 justify-between text-xs text-background/55">
-          <div>Clean Box Enterprise Inc. © 2026 — Patent Pending, USPTO &amp; International.</div>
+          <div>Clean Box Enterprise Inc. © 2026 — Patent Pending, USPTO & International.</div>
           <div className="text-background/45">
-            Architecture &amp; Security by <span className="text-background/75 font-medium">BlueHippoCyber</span> &middot; Powered by Cloudflare Edge
+            Architecture & Security by <span className="text-background/75 font-medium">BlueHippoCyber</span>
           </div>
         </div>
       </div>

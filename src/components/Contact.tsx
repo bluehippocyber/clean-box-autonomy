@@ -1,199 +1,184 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Check, Building2, User, ClipboardList } from "lucide-react";
+import { ArrowRight, Building2, Users, Mic, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 
-const steps = [
-  { icon: Building2, title: "Facility", desc: "Tell us about your organization" },
-  { icon: ClipboardList, title: "Needs", desc: "Help us tailor the right solution" },
-  { icon: User, title: "Contact", desc: "How should we reach you?" },
-];
-
 export const Contact = () => {
-  const [step, setStep] = useState(0);
-  const [data, setData] = useState({
-    facilityName: "",
-    facilityType: "skilled-nursing",
-    units: "1-5",
-    interest: "consultation",
-    timeline: "asap",
-    name: "",
-    email: "",
-    phone: "",
-    notes: "",
-  });
+  const [tab, setTab] = useState<"general" | "buyer">("general");
+  const [submitted, setSubmitted] = useState(false);
 
-  const update = (k: string, v: string) => setData((p) => ({ ...p, [k]: v }));
-  const next = () => setStep((s) => Math.min(s + 1, steps.length - 1));
-  const prev = () => setStep((s) => Math.max(s - 1, 0));
+  const [general, setGeneral] = useState({ name: "", company: "", title: "", email: "", phone: "", location: "", industry: "", message: "" });
+  const [buyer, setBuyer] = useState({ units: "", locationType: "", timeline: "", budget: "", financing: "no" });
 
-  const submit = () => {
-    if (!data.name || !data.email) {
-      toast.error("Please complete all required fields.");
+  const updateG = (k: string, v: string) => setGeneral(p => ({ ...p, [k]: v }));
+  const updateB = (k: string, v: string) => setBuyer(p => ({ ...p, [k]: v }));
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!general.name || !general.email) {
+      toast.error("Please enter your name and email to continue.");
       return;
     }
-    toast.success("Request received. Terrance King will be in touch within 24 hours.");
-    setStep(0);
-    setData({
-      facilityName: "", facilityType: "skilled-nursing", units: "1-5", interest: "consultation",
-      timeline: "asap", name: "", email: "", phone: "", notes: "",
-    });
+    toast.success("Inquiry received. The Clean Box team will follow up within 24 hours.");
+    setSubmitted(true);
   };
+
+  if (submitted) {
+    return (
+      <section id="contact" className="py-24 lg:py-32 bg-surface-clinical">
+        <div className="container max-w-2xl text-center">
+          <CheckCircle className="w-16 h-16 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl font-bold mb-4">Inquiry Received.</h2>
+          <p className="text-muted-foreground text-lg mb-8">The Clean Box team reviews all serious inquiries and responds promptly. You'll hear from us within 24 hours.</p>
+          <Button variant="outline" onClick={() => setSubmitted(false)}>Submit Another Inquiry</Button>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-surface-clinical">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">
-            04 / Direct Contact Portal
-          </div>
+        {/* Hero */}
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Contact</div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Schedule a consultation with{" "}
-            <span className="text-primary">Terrance King.</span>
+            Let's Build the Future of{" "}
+            <span className="text-primary">Bathing Together.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Request technical specs, pricing, or a private walkthrough of the Clean Box system.
+            Connect with the Clean Box team to explore purchasing, partnerships, demonstrations, media opportunities, or strategic collaboration.
           </p>
         </div>
 
+        {/* Context cards */}
+        <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto mb-14">
+          {[
+            { icon: Building2, title: "Private Demonstration", desc: "Schedule a hands-on product walkthrough for healthcare groups, institutions, and qualified buyers." },
+            { icon: Users, title: "Strategic Partnerships", desc: "Distributors, healthcare networks, government buyers, wellness groups, and innovation partners welcome." },
+            { icon: Mic, title: "Press & Speaking", desc: "Podcast appearances, media features, speaking opportunities, and founder interviews." },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="p-6 rounded-2xl bg-white border border-border shadow-card">
+              <Icon className="w-6 h-6 text-primary mb-3" />
+              <div className="font-semibold text-foreground mb-2">{title}</div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Form */}
         <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-border shadow-elevated overflow-hidden">
-          <div className="grid grid-cols-3 border-b border-border">
-            {steps.map((s, i) => (
-              <div
-                key={s.title}
-                className={`p-5 flex items-center gap-3 border-r last:border-r-0 border-border transition-colors ${
-                  i === step ? "bg-primary-soft" : "bg-secondary/40"
-                }`}
+          {/* Tab switcher */}
+          <div className="grid grid-cols-2 border-b border-border">
+            {[
+              { key: "general", label: "Start the Conversation" },
+              { key: "buyer", label: "Commercial Buyer Inquiry" },
+            ].map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setTab(key as "general" | "buyer")}
+                className={`py-5 px-6 text-sm font-semibold border-r last:border-r-0 border-border transition-colors ${tab === key ? "bg-primary-soft text-primary" : "bg-secondary/40 text-foreground/60 hover:text-foreground"}`}
               >
-                <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${
-                    i <= step ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                  }`}
-                >
-                  {i < step ? <Check className="w-4 h-4" /> : <s.icon className="w-4 h-4" />}
-                </div>
-                <div className="hidden sm:block">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-foreground">{s.title}</div>
-                  <div className="text-[11px] text-muted-foreground">{s.desc}</div>
-                </div>
-              </div>
+                {label}
+              </button>
             ))}
           </div>
 
-          <div className="p-8 lg:p-10">
-            {step === 0 && (
-              <div className="space-y-5 animate-fade-up">
-                <Field label="Facility Name *">
-                  <Input value={data.facilityName} onChange={(e) => update("facilityName", e.target.value)} placeholder="Sunrise Senior Living" />
-                </Field>
-                <Field label="Facility Type">
-                  <RadioGroup value={data.facilityType} onValueChange={(v) => update("facilityType", v)} className="grid sm:grid-cols-2 gap-3">
-                    {["skilled-nursing", "hospital", "rehab", "private-residence"].map((t) => (
-                      <label key={t} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${data.facilityType === t ? "border-primary bg-primary-soft" : "border-border hover:border-primary/40"}`}>
-                        <RadioGroupItem value={t} />
-                        <span className="text-sm capitalize">{t.replace("-", " ")}</span>
-                      </label>
-                    ))}
-                  </RadioGroup>
-                </Field>
-                <Field label="Unit Requirement">
-                  <RadioGroup value={data.units} onValueChange={(v) => update("units", v)} className="grid grid-cols-3 gap-3">
-                    {[
-                      { v: "1-5", l: "1 – 5 units" },
-                      { v: "10-25", l: "10 – 25 units" },
-                      { v: "50+", l: "50+ fleet" },
-                    ].map((o) => (
-                      <label key={o.v} className={`flex items-center justify-center text-center p-3 rounded-lg border cursor-pointer text-sm transition-colors ${data.units === o.v ? "border-primary bg-primary-soft text-primary-deep font-semibold" : "border-border hover:border-primary/40"}`}>
-                        <RadioGroupItem value={o.v} className="sr-only" />
-                        {o.l}
-                      </label>
-                    ))}
-                  </RadioGroup>
-                </Field>
+          <form onSubmit={submit} className="p-8 space-y-6">
+            {/* General fields — always shown */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="name">Full Name *</Label>
+                <Input id="name" placeholder="Terrance King" value={general.name} onChange={e => updateG("name", e.target.value)} required />
               </div>
-            )}
-
-            {step === 1 && (
-              <div className="space-y-5 animate-fade-up">
-                <Field label="What are you looking for?">
-                  <RadioGroup value={data.interest} onValueChange={(v) => update("interest", v)} className="space-y-3">
-                    {[
-                      { v: "consultation", l: "Schedule a consultation" },
-                      { v: "specs", l: "Technical specifications" },
-                      { v: "quote", l: "Commercial pricing & quote" },
-                      { v: "demo", l: "On-site demonstration" },
-                    ].map((o) => (
-                      <label key={o.v} className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-colors ${data.interest === o.v ? "border-primary bg-primary-soft" : "border-border hover:border-primary/40"}`}>
-                        <RadioGroupItem value={o.v} />
-                        <span className="text-sm font-medium">{o.l}</span>
-                      </label>
-                    ))}
-                  </RadioGroup>
-                </Field>
-                <Field label="Installation Timeline">
-                  <RadioGroup value={data.timeline} onValueChange={(v) => update("timeline", v)} className="grid grid-cols-3 gap-3">
-                    {[
-                      { v: "asap", l: "ASAP" },
-                      { v: "6-12", l: "6 – 12 months" },
-                      { v: "exploring", l: "Exploring" },
-                    ].map((o) => (
-                      <label key={o.v} className={`flex items-center justify-center p-3 rounded-lg border cursor-pointer text-sm transition-colors ${data.timeline === o.v ? "border-primary bg-primary-soft text-primary-deep font-semibold" : "border-border hover:border-primary/40"}`}>
-                        <RadioGroupItem value={o.v} className="sr-only" />
-                        {o.l}
-                      </label>
-                    ))}
-                  </RadioGroup>
-                </Field>
+              <div className="space-y-1.5">
+                <Label htmlFor="company">Company / Organization</Label>
+                <Input id="company" placeholder="Sunrise Care Facility" value={general.company} onChange={e => updateG("company", e.target.value)} />
               </div>
-            )}
-
-            {step === 2 && (
-              <div className="space-y-5 animate-fade-up">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field label="Full Name *">
-                    <Input value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Jane Doe" />
-                  </Field>
-                  <Field label="Phone">
-                    <Input type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder="(555) 123-4567" />
-                  </Field>
-                </div>
-                <Field label="Work Email *">
-                  <Input type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="jane@facility.com" />
-                </Field>
-                <Field label="Anything else we should know?">
-                  <Textarea value={data.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Specific questions, timeline notes, etc." rows={4} />
-                </Field>
+              <div className="space-y-1.5">
+                <Label htmlFor="title">Job Title</Label>
+                <Input id="title" placeholder="Administrator" value={general.title} onChange={e => updateG("title", e.target.value)} />
               </div>
-            )}
-
-            <div className="mt-8 flex items-center justify-between gap-4">
-              <Button variant="ghost" onClick={prev} disabled={step === 0}>
-                <ArrowLeft /> Back
-              </Button>
-              {step < steps.length - 1 ? (
-                <Button variant="cta" onClick={next}>
-                  Continue <ArrowRight />
-                </Button>
-              ) : (
-                <Button variant="cta" onClick={submit}>
-                  Submit Request <Check />
-                </Button>
-              )}
+              <div className="space-y-1.5">
+                <Label htmlFor="email">Email Address *</Label>
+                <Input id="email" type="email" placeholder="you@organization.com" value={general.email} onChange={e => updateG("email", e.target.value)} required />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input id="phone" type="tel" placeholder="+1 (305) 000-0000" value={general.phone} onChange={e => updateG("phone", e.target.value)} />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="location">Country / State</Label>
+                <Input id="location" placeholder="Florida, USA" value={general.location} onChange={e => updateG("location", e.target.value)} />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="industry">Industry Type</Label>
+                <Input id="industry" placeholder="e.g. Skilled Nursing, Home Care, Hospitality…" value={general.industry} onChange={e => updateG("industry", e.target.value)} />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea id="message" rows={4} placeholder="Tell us about your needs…" value={general.message} onChange={e => updateG("message", e.target.value)} />
+              </div>
             </div>
-          </div>
+
+            {/* Buyer fields */}
+            {tab === "buyer" && (
+              <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-border">
+                <div className="space-y-1.5">
+                  <Label htmlFor="units">Number of Units Needed</Label>
+                  <Input id="units" placeholder="e.g. 5–10 units" value={buyer.units} onChange={e => updateB("units", e.target.value)} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="locationType">Installation Location Type</Label>
+                  <Input id="locationType" placeholder="e.g. Skilled Nursing Facility" value={buyer.locationType} onChange={e => updateB("locationType", e.target.value)} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="timeline">Desired Timeline</Label>
+                  <Input id="timeline" placeholder="e.g. Q3 2026" value={buyer.timeline} onChange={e => updateB("timeline", e.target.value)} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="budget">Budget Range</Label>
+                  <Input id="budget" placeholder="e.g. $50K–$150K" value={buyer.budget} onChange={e => updateB("budget", e.target.value)} />
+                </div>
+                <div className="space-y-1.5 sm:col-span-2">
+                  <Label>Need Financing Options?</Label>
+                  <div className="flex gap-4 mt-1">
+                    {["yes", "no", "unsure"].map(v => (
+                      <label key={v} className="flex items-center gap-2 text-sm cursor-pointer">
+                        <input type="radio" name="financing" value={v} checked={buyer.financing === v} onChange={() => updateB("financing", v)} className="accent-primary" />
+                        {v.charAt(0).toUpperCase() + v.slice(1)}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Response assurance */}
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-primary-soft border border-primary/20 text-sm text-foreground/70">
+              <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span><strong className="text-foreground">Fast Professional Follow-Up.</strong> Our team reviews all serious inquiries and responds promptly to qualified opportunities.</span>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Button type="submit" variant="cta" size="lg" className="flex-1 group">
+                Submit Inquiry
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button type="button" variant="outlineRed" size="lg" className="flex-1" asChild>
+                <a href="#contact">Book Consultation</a>
+              </Button>
+              <Button type="button" variant="outline" size="lg" className="flex-1" asChild>
+                <a href="#contact">Request Demonstration</a>
+              </Button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   );
 };
-
-const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div>
-    <Label className="text-sm font-semibold text-foreground mb-2 block">{label}</Label>
-    {children}
-  </div>
-);
