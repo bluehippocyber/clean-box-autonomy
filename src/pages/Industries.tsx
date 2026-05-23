@@ -1,146 +1,146 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { ArrowRight, Building2, Home, Heart, Shield, Sparkles, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import heroVideo from "@/assets/hero-video.mp4";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const industries = [
   {
-    icon: Building2,
-    title: "Healthcare & Senior Care",
-    markets: ["Nursing Homes", "Assisted Living Communities", "Hospitals", "Rehabilitation Centers"],
-    value: "Reduce caregiver strain, improve resident experience, and modernize bathing operations at scale.",
+    name: "Nursing Homes & Long-Term Care",
+    icon: "🏥",
+    description:
+      "High-volume daily bathing is one of the biggest labor costs in long-term care. Clean Box reduces hands-on bathing time from 30 minutes to 10 minutes per resident — preserving caregiver capacity without cutting corners on care.",
+    stats: ["Up to 66.7% time reduction", "1 caregiver per cycle", "Daily operational savings"],
   },
   {
-    icon: Home,
-    title: "Home Care & Aging in Place",
-    markets: ["Private Homes", "Home Healthcare Providers", "Family Caregiving Environments"],
-    value: "Support independence and safer hygiene routines for individuals who wish to remain at home.",
+    name: "Rehabilitation Centers",
+    icon: "♻️",
+    description:
+      "Patients in rehabilitation often require frequent bathing assistance. Clean Box's dignified, controlled workflow supports faster throughput without compromising patient safety or therapist oversight.",
+    stats: ["Reduced caregiver strain", "Consistent cycle timing", "Improved throughput"],
   },
   {
-    icon: Heart,
-    title: "Disability & Adaptive Care",
-    markets: ["Disability Support Organizations", "Adaptive Living Centers", "Long-Term Mobility Care"],
-    value: "Provide dignified bathing solutions for users with mobility and accessibility needs.",
+    name: "Assisted Living Facilities",
+    icon: "🏡",
+    description:
+      "Assisted living operators face staffing shortages and rising wages. Clean Box helps facilities do more with existing staff — improving both resident experience and operational margins.",
+    stats: ["Staffing efficiency", "Higher resident dignity", "Lower overtime risk"],
   },
   {
-    icon: Shield,
-    title: "Government & Institutional Care",
-    markets: ["Veterans Facilities", "Public Care Systems", "Secure Residential Facilities", "Institutional Rehabilitation Programs"],
-    value: "Improve hygiene access while supporting operational efficiency and duty of care.",
+    name: "Hospitals & Acute Care",
+    icon: "🏨",
+    description:
+      "Bed-bound and post-surgical patients need regular hygiene care. Clean Box integrates into hospital hygiene protocols without requiring a second caregiver, reducing departmental labor costs.",
+    stats: ["ICU & post-op compatible", "Infection control support", "Single-caregiver operation"],
   },
   {
-    icon: Sparkles,
-    title: "Hospitality & Wellness",
-    markets: ["Luxury Wellness Resorts", "Recovery Spas", "Executive Retreats", "Medical Tourism Destinations"],
-    value: "Offer a futuristic premium bathing experience that differentiates guest services.",
+    name: "Home Care Agencies",
+    icon: "🤝",
+    description:
+      "Mobile and home-use configurations allow caregivers to deliver professional-grade bathing support in residential settings — expanding your agency's service capacity per visit.",
+    stats: ["In-home deployment", "Extended visit value", "Caregiver safety"],
   },
   {
-    icon: Globe,
-    title: "Strategic Distribution",
-    markets: ["International Distributors", "Facility Equipment Suppliers", "Government Procurement Channels", "Franchise / Licensing Opportunities"],
-    value: "Expand Clean Box into new markets through strategic distribution partnerships worldwide.",
+    name: "Correctional & Institutional",
+    icon: "🏛️",
+    description:
+      "High-volume institutional hygiene demands call for consistent, repeatable workflows. Clean Box delivers a controlled, supervised bathing cycle that scales across large populations.",
+    stats: ["High-volume capable", "Supervision maintained", "Standardized workflow"],
   },
 ];
 
 const Industries = () => {
-  const navigate = useNavigate();
-  const goToContact = () => {
-    navigate("/");
-    setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 120);
-  };
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-black min-h-screen">
       <Navbar />
-      <main className="pt-20">
 
-        {/* Hero — original hero video */}
-        <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20">
-          <div className="absolute inset-0">
-            <video src={heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-          </div>
-          <div className="container relative z-10 py-20 max-w-4xl">
-            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">Industries Served</div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
-              One Innovation.{" "}
-              <span className="text-primary">Multiple High-Value Markets.</span>
-            </h1>
-            <p className="mt-8 text-xl text-muted-foreground max-w-3xl leading-relaxed">
-              Clean Box technology is built to solve bathing challenges across industries where safety, dignity, hygiene, and efficiency matter most.
-            </p>
-          </div>
-        </section>
+      {/* Hero */}
+      <section className="pt-32 pb-16 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <p
+            className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3"
+            style={{ WebkitFontSmoothing: "antialiased" }}
+          >
+            Markets Served
+          </p>
+          <h1
+            className="text-4xl md:text-5xl font-bold text-white leading-tight"
+            style={{ WebkitFontSmoothing: "antialiased" }}
+          >
+            Built for the
+            <br />
+            <span className="text-white/60">Facilities That Need It Most</span>
+          </h1>
+          <p className="mt-6 text-white/50 text-lg max-w-xl mx-auto">
+            Clean Box is designed for any care setting where bathing time,
+            caregiver safety, and resident dignity matter.
+          </p>
+          <Link
+            to="/showcase"
+            className="mt-8 inline-flex items-center px-8 py-3.5 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-all"
+          >
+            View Showcase
+          </Link>
+        </div>
+      </section>
 
-        {/* Industries Grid */}
-        <section className="py-24 lg:py-32 bg-surface-clinical">
-          <div className="container">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {industries.map(({ icon: Icon, title, markets, value }) => (
-                <div key={title} className="group p-8 rounded-2xl bg-secondary/30 border border-border hover:border-primary/30 hover:shadow-elevated hover:bg-white transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center mb-5 group-hover:bg-primary group-hover:border-primary transition-colors">
-                    <Icon className="w-5 h-5 text-foreground/60 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{title}</h3>
-                  <ul className="space-y-1 mb-4">
-                    {markets.map((m) => (
-                      <li key={m} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
-                        {m}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-foreground/70 leading-relaxed border-t border-border pt-4 mt-4">{value}</p>
-                </div>
-              ))}
+      {/* Industry cards */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {industries.map((industry) => (
+            <div
+              key={industry.name}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col"
+            >
+              <div className="text-4xl mb-4">{industry.icon}</div>
+              <h2
+                className="text-lg font-bold text-white mb-3"
+                style={{ WebkitFontSmoothing: "antialiased" }}
+              >
+                {industry.name}
+              </h2>
+              <p className="text-white/50 text-sm leading-relaxed flex-1">
+                {industry.description}
+              </p>
+              <ul className="mt-4 space-y-1.5">
+                {industry.stats.map((s) => (
+                  <li key={s} className="flex items-center gap-2 text-xs text-white/50">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/showcase"
+                className="mt-5 block w-full py-2.5 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 text-sm text-center font-medium transition-all"
+              >
+                View Showcase →
+              </Link>
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        {/* Why It Matters */}
-        <section className="py-24 lg:py-32 bg-foreground text-background">
-          <div className="container max-w-4xl">
-            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Why It Matters</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">
-              Not one market. A platform.
-            </h2>
-            <p className="text-xl text-background/75 leading-relaxed mb-6">
-              Clean Box is not limited to one customer profile. It is a platform technology with broad demand potential wherever bathing safety, hygiene, or staffing challenges exist.
-            </p>
-            <p className="text-lg text-background/55 leading-relaxed">
-              From skilled nursing facilities managing 80 residents per day to luxury wellness resorts offering a premium guest experience — Clean Box delivers the same core promise: dignity, safety, and efficiency, adapted to the environment.
-            </p>
-          </div>
-        </section>
+      {/* Bottom CTA */}
+      <section className="py-20 px-6 text-center border-t border-white/10">
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="text-3xl font-bold text-white mb-4"
+            style={{ WebkitFontSmoothing: "antialiased" }}
+          >
+            Ready to See It in Action?
+          </h2>
+          <p className="text-white/50 mb-8">
+            The Clean Box Showcase is the best way to experience the workflow,
+            review ROI projections, and meet our team.
+          </p>
+          <Link
+            to="/showcase"
+            className="inline-flex items-center px-10 py-4 bg-white text-black font-bold text-base rounded-full hover:bg-white/90 transition-all shadow-lg"
+          >
+            View Showcase
+          </Link>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <section className="py-24 lg:py-32 bg-surface-clinical">
-          <div className="container max-w-3xl text-center">
-            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Explore Partnership Opportunities</div>
-            <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
-              Your market. Our technology.
-            </h2>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Whether you're a healthcare operator, government procurement officer, international distributor, or wellness innovator — let's explore what Clean Box can do in your environment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" onClick={goToContact} className="group cursor-pointer">
-                Request Industry Consultation
-                <ArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outlineRed" size="xl" onClick={goToContact} className="cursor-pointer">
-                Become a Distributor
-              </Button>
-              <Button variant="outline" size="xl" onClick={goToContact} className="cursor-pointer">
-                Commercial Buyer Inquiry
-              </Button>
-            </div>
-          </div>
-        </section>
-
-      </main>
       <Footer />
     </div>
   );
