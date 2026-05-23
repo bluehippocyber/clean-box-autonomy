@@ -1,97 +1,68 @@
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import showroomVideo from "@/assets/showroom-hero.mp4";
 
 const Hero = () => {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
-      style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }}
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      {/* CSS-only radial gradient — no image, no blur over text */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%)",
-        }}
-      />
+      {/* Showroom video background */}
+      <div className="absolute inset-0">
+        <video
+          src={showroomVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay — left heavy so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+      </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-28 pb-24">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 mb-8">
-          <span
-            className="text-xs font-semibold uppercase tracking-widest text-white/50"
-            style={{ WebkitFontSmoothing: "antialiased" }}
-          >
-            66.7% reduction in bathing time
-          </span>
-        </div>
+      <div className="container relative z-10 py-16 lg:py-24">
+        <div className="max-w-2xl">
+          {/* Label */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-primary">
+              Now Accepting Reservations
+            </span>
+          </div>
 
-        {/* Headline — pure HTML/CSS, no image text */}
-        <h1
-          className="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight tracking-tight"
-          style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }}
-        >
-          The Smart Foundation
-          <br />
-          <span
-            className="text-white/50"
-            style={{ WebkitFontSmoothing: "antialiased" }}
-          >
-            for Modern Care
-          </span>
-        </h1>
+          {/* Headline */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
+            The Future of Safe{" "}
+            <span className="text-primary">Independent Bathing.</span>
+          </h1>
 
-        {/* Subheadline */}
-        <p
-          className="mt-6 text-lg sm:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed"
-          style={{ WebkitFontSmoothing: "antialiased" }}
-        >
-          Clean Box cuts assisted bathing from 30 minutes to 10 — reducing labor
-          costs, protecting caregivers, and preserving resident dignity.
-        </p>
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            Clean Box is automated bathing technology designed to restore dignity, improve safety, and modernize hygiene care for homes, facilities, and institutions worldwide.
+          </p>
 
-        {/* CTA buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to="/showcase"
-            className="inline-flex items-center px-8 py-3.5 bg-white text-black font-bold text-base rounded-full hover:bg-white/90 transition-all shadow-lg"
-            style={{ WebkitFontSmoothing: "antialiased" }}
-          >
-            View Showcase
-          </Link>
-          <a
-            href="#about"
-            className="inline-flex items-center px-8 py-3.5 border border-white/20 text-white/70 hover:text-white hover:border-white/40 font-medium text-base rounded-full transition-all"
-            style={{ WebkitFontSmoothing: "antialiased" }}
-          >
-            Learn How It Works
-          </a>
-        </div>
+          {/* Single CTA */}
+          <div className="mt-10">
+            <Link
+              to="/showcase"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white hover:bg-primary/90 transition-colors group"
+            >
+              View Showcase
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
 
-        {/* Stats strip */}
-        <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
-          {[
-            { value: "30→10", label: "Minutes per bath" },
-            { value: "1", label: "Caregiver required" },
-            { value: "66.7%", label: "Time saved" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p
-                className="text-2xl font-bold text-white tabular-nums"
-                style={{ WebkitFontSmoothing: "antialiased" }}
-              >
-                {stat.value}
-              </p>
-              <p
-                className="text-xs text-white/40 mt-1"
-                style={{ WebkitFontSmoothing: "antialiased" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
+          {/* Trust line */}
+          <p className="mt-8 text-xs text-muted-foreground">
+            Featured at: University of Tampa · FAU Tech Runway · Investor Catalyst Hub · NARP
+          </p>
         </div>
       </div>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };
