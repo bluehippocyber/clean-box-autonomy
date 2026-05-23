@@ -1,211 +1,93 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, Target, Heart, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const differentiators = [
-  "Mission-driven innovation — every product decision starts with dignity",
-  "Premium user-centered design — comfort and safety built in from day one",
-  "Focus on safety and dignity — the product never compromises on either",
-  "Scalable multi-industry applications — healthcare, residential, hospitality, institutional",
-  "Future-forward product ecosystem — Wave and Tsunami are just the beginning",
-];
-
-const credibility = [
-  "University of Tampa",
-  "Florida Atlantic University Tech Runway",
-  "Investor Catalyst Hub",
-  "National Association of Reentry Professionals (NARP)",
+const values = [
+  { icon: Heart,   title: "Dignity First",      desc: "Every design decision starts with one question: does this restore dignity to the person using it?" },
+  { icon: Shield,  title: "Safety by Design",   desc: "Engineered to eliminate fall risk, caregiver strain, and hygiene gaps in every care environment." },
+  { icon: Target,  title: "Operational Impact", desc: "Reducing bathing time by 66.7% frees staff for higher-value care — measurable ROI from day one." },
+  { icon: Zap,     title: "Built to Scale",     desc: "From single homes to 500-bed facilities, Clean Box adapts to the care environment — not the other way around." },
 ];
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="pt-20">
 
-        {/* Hero */}
-        <section className="pt-24 pb-20 px-6 bg-black">
-          <div className="max-w-4xl mx-auto">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              About Clean Box
-            </p>
-            <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Innovation{" "}
-              <span className="text-white/60">With Purpose.</span>
+      {/* Hero */}
+      <section className="pt-40 pb-24 bg-background">
+        <div className="container">
+          <div className="max-w-3xl">
+            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">About Clean Box</div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-foreground">
+              Engineering dignity for{" "}
+              <span className="text-primary">every generation.</span>
             </h1>
-            <p className="mt-8 text-xl md:text-2xl text-white/50 max-w-3xl leading-relaxed">
-              Clean Box was created to transform one of life's most essential daily experiences
-              through dignity, safety, and modern engineering.
+            <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              Clean Box Enterprise is a Tampa-based deep-tech company building automated bathing systems that restore independence, reduce caregiver burden, and modernize hygiene care for homes, facilities, and institutions worldwide.
             </p>
-          </div>
-        </section>
-
-        {/* Who We Are */}
-        <section className="py-24 px-6 bg-black border-t border-white/10">
-          <div className="max-w-4xl mx-auto">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Who We Are
-            </p>
-            <h2
-              className="text-4xl font-bold text-white mb-6"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              A forward-thinking technology company reimagining bathing.
-            </h2>
-            <p className="text-lg text-white/50 leading-relaxed">
-              Clean Box is focused on reimagining bathing through automation, accessibility, and
-              premium design. Our mission is to help individuals and organizations deliver safer,
-              more dignified hygiene experiences — across every care environment, at every scale.
-            </p>
-          </div>
-        </section>
-
-        {/* Why We Started */}
-        <section className="py-24 px-6 bg-black border-t border-white/10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4"
-                  style={{ WebkitFontSmoothing: "antialiased" }}
-                >
-                  Why We Started
-                </p>
-                <h2
-                  className="text-4xl font-bold text-white mb-6"
-                  style={{ WebkitFontSmoothing: "antialiased" }}
-                >
-                  Real families. Real challenges.{" "}
-                  <span className="text-white/60">A better way forward.</span>
-                </h2>
-                <p className="text-lg text-white/50 leading-relaxed">
-                  Clean Box was inspired by witnessing the real challenges many families face when
-                  loved ones lose the ability to bathe safely and independently.
-                </p>
-                <p className="mt-4 text-lg text-white/50 leading-relaxed">
-                  We believed there had to be a better way. So we built one.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { num: "8+", label: "Industries Served" },
-                  { num: "2", label: "Product Models" },
-                  { num: "4", label: "Institutional Partners" },
-                  { num: "1", label: "Mission: Restore Dignity" },
-                ].map(({ num, label }) => (
-                  <div
-                    key={label}
-                    className="p-6 rounded-2xl border border-white/10 bg-white/5 text-center"
-                  >
-                    <div
-                      className="text-4xl font-bold text-white mb-2 tabular-nums"
-                      style={{ WebkitFontSmoothing: "antialiased" }}
-                    >
-                      {num}
-                    </div>
-                    <div className="text-sm text-white/50">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Founder Vision */}
-        <section className="py-24 px-6 bg-black border-t border-white/10">
-          <div className="max-w-4xl mx-auto">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Founder Vision
-            </p>
-            <h2
-              className="text-4xl font-bold text-white mb-8"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Terrance King.
-            </h2>
-            <p className="text-xl text-white/60 leading-relaxed mb-6">
-              Founder Terrance King set out to build a new category of technology that blends
-              compassion with engineering — creating solutions that restore confidence, reduce
-              strain, and improve quality of life for users and caregivers alike.
-            </p>
-            <p className="text-lg text-white/40 leading-relaxed">
-              With a vision grounded in real human experience and a commitment to premium
-              engineering, Terrance is building Clean Box into the global standard for automated
-              bathing technology.
-            </p>
-          </div>
-        </section>
-
-        {/* What Makes Us Different */}
-        <section className="py-24 px-6 bg-black border-t border-white/10">
-          <div className="max-w-4xl mx-auto">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              What Makes Us Different
-            </p>
-            <h2
-              className="text-4xl font-bold text-white mb-10"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Five things no competitor can claim.
-            </h2>
-            <div className="space-y-4">
-              {differentiators.map((d) => (
-                <div
-                  key={d}
-                  className="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5"
-                >
-                  <CheckCircle className="w-5 h-5 text-white/40 mt-0.5 shrink-0" />
-                  <span className="text-white/60 leading-relaxed">{d}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Credibility */}
-        <section className="py-24 px-6 bg-black border-t border-white/10">
-          <div className="max-w-4xl mx-auto">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Featured & Supported By
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-12">
-              {credibility.map((c) => (
-                <div key={c} className="p-5 rounded-xl border border-white/10 bg-white/5">
-                  <p className="text-white/70 font-medium">{c}</p>
-                </div>
-              ))}
-            </div>
-            <div className="text-center">
+            <div className="mt-10">
               <Link
                 to="/showcase"
-                className="inline-flex items-center px-10 py-4 bg-white text-black font-bold text-base rounded-full hover:bg-white/90 transition-all shadow-lg"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
               >
                 View Showcase
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </main>
+      {/* Mission */}
+      <section className="py-24 bg-surface-clinical">
+        <div className="container">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Our Mission</div>
+            <h2 className="text-4xl font-bold tracking-tight text-foreground">
+              Restore what traditional care took away.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              We believe bathing should never be a source of fear, embarrassment, or dependency. Clean Box exists to give people back their privacy, their comfort, and their sense of self — one automated cycle at a time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Our Values</div>
+            <h2 className="text-4xl font-bold tracking-tight text-foreground">
+              What drives every decision.
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {values.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="p-7 rounded-2xl border border-border bg-card">
+                <Icon className="w-6 h-6 text-primary mb-4" />
+                <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recognition */}
+      <section className="py-20 bg-background border-t border-border">
+        <div className="container text-center">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">Recognition</div>
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+            {["University of Tampa", "FAU Tech Runway", "Investor Catalyst Hub", "NARP"].map(org => (
+              <span key={org} className="px-4 py-2 rounded-full border border-border bg-card">{org}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
