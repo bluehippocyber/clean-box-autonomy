@@ -1,79 +1,47 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/cleanbox-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-white/10 py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
+    <footer className="bg-foreground text-background py-14">
+      <div className="container">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
           <div>
-            <Link to="/" className="text-white font-bold text-xl tracking-tight">
-              Clean Box
-            </Link>
-            <p
-              className="mt-3 text-sm text-white/40 max-w-xs leading-relaxed"
-              style={{ WebkitFontSmoothing: "antialiased" }}
-            >
-              Reducing assisted bathing from 30 minutes to 10 — protecting
-              caregivers and preserving resident dignity.
+            <img src={logo} alt="Cleanbox" className="h-9 w-auto brightness-0 invert mb-4" />
+            <p className="text-sm text-background/60 max-w-xs">
+              The future of personal care, engineered for dignity.
+            </p>
+            <p className="mt-3 text-sm text-background/50">
+              <a href="mailto:T.King@cleanboxent.com" className="hover:text-primary transition-colors">
+                T.King@cleanboxent.com
+              </a>
             </p>
           </div>
-
-          {/* Nav links */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-              Company
-            </p>
-            <ul className="space-y-2.5">
-              {[
-                { label: "Home", to: "/" },
-                { label: "About", to: "/about" },
-                { label: "Industries", to: "/industries" },
-              ].map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <a
-                  href="mailto:info@cleanboxent.com"
-                  className="text-sm text-white/60 hover:text-white transition-colors"
-                >
-                  Contact Our Team
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* CTA */}
-          <div className="flex flex-col items-start md:items-end justify-start">
-            <Link
-              to="/showcase"
-              className="inline-flex items-center px-6 py-3 bg-white text-black font-semibold text-sm rounded-full hover:bg-white/90 transition-all"
-            >
-              View Showcase
-            </Link>
-            <p className="mt-3 text-xs text-white/30">
-              See a live demo · Review ROI · Meet the team
-            </p>
+          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:justify-self-end text-sm">
+            <div>
+              <div className="font-semibold mb-3">Company</div>
+              <ul className="space-y-2 text-background/70">
+                <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
+                <li><Link to="/industries" className="hover:text-primary transition-colors">Industries</Link></li>
+                <li><Link to="/showcase" className="hover:text-primary transition-colors">Showcase</Link></li>
+                <li><Link to="/" className="hover:text-primary transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <div className="font-semibold mb-3">Legal</div>
+              <ul className="space-y-2 text-background/70">
+                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Accessibility</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/25">
-            © {new Date().getFullYear()} Clean Box Enterprise Inc. · Patent Pending, USPTO & International.
-          </p>
-          <a
-            href="mailto:info@cleanboxent.com"
-            className="text-xs text-white/25 hover:text-white/50 transition-colors"
-          >
-            info@cleanboxent.com
-          </a>
+        <div className="mt-12 pt-6 border-t border-background/10 flex flex-col md:flex-row gap-3 justify-between text-xs text-background/55">
+          <div>Clean Box Enterprise Inc. © 2026 — Patent Pending, USPTO &amp; International.</div>
+          <div className="text-background/45">
+            Architecture &amp; Security by <span className="text-background/75 font-medium">BlueHippoCyber</span>
+          </div>
         </div>
       </div>
     </footer>
