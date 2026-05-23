@@ -1,38 +1,49 @@
-import { ArrowRight, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Quote } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export const FounderStory = () => {
+const FounderStory = () => {
   return (
-    <section className="py-24 lg:py-32 bg-foreground text-background">
-      <div className="container">
+    <section id="about" className="py-24 px-6 bg-black border-t border-white/10">
+      <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6"
+              style={{ WebkitFontSmoothing: "antialiased" }}
+            >
               Founder Story
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+            </p>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-white leading-tight"
+              style={{ WebkitFontSmoothing: "antialiased" }}
+            >
               Born from a real{" "}
-              <span className="text-primary">family challenge.</span>
+              <span className="text-white/60">family challenge.</span>
             </h2>
-            <div className="mt-8 relative pl-6 border-l-2 border-primary">
-              <Quote className="absolute -left-3 -top-2 w-5 h-5 text-primary" />
-              <p className="text-lg text-background/80 leading-relaxed italic">
-                "I watched families struggle with one of life's most essential needs. Loved ones losing their independence, caregivers exhausted, dignity quietly eroding. I knew there had to be a better way."
+            <div className="mt-8 relative pl-6 border-l border-white/20">
+              <Quote className="absolute -left-3 -top-1 w-5 h-5 text-white/30" />
+              <p className="text-lg text-white/60 leading-relaxed italic">
+                "I watched families struggle with one of life's most essential needs. Loved ones
+                losing their independence, caregivers exhausted, dignity quietly eroding. I knew
+                there had to be a better way."
               </p>
-              <div className="mt-4 text-sm font-semibold text-background/60 not-italic">
+              <div className="mt-4 text-sm font-semibold text-white/40 not-italic">
                 — Terrance King, Founder & CEO
               </div>
             </div>
-            <p className="mt-8 text-background/70 leading-relaxed">
-              Clean Box was created to restore what traditional bathing care had taken away — dignity, independence, and confidence. By blending compassion with precision engineering, Terrance King built a new category of technology that serves users, caregivers, and operators alike.
+            <p className="mt-8 text-white/50 leading-relaxed">
+              Clean Box was created to restore what traditional bathing care had taken away —
+              dignity, independence, and confidence. By blending compassion with precision
+              engineering, Terrance King built a new category of technology that serves users,
+              caregivers, and operators alike.
             </p>
             <div className="mt-10">
-              <Button variant="cta" size="lg" asChild>
-                <a href="/about" className="group">
-                  Our Full Story
-                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
+              <Link
+                to="/showcase"
+                className="inline-flex items-center px-8 py-3.5 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-all"
+              >
+                View Showcase
+              </Link>
             </div>
           </div>
 
@@ -43,14 +54,29 @@ export const FounderStory = () => {
               { label: "Markets", value: "8+ Industries" },
               { label: "Models", value: "Wave & Tsunami" },
             ].map(({ label, value }) => (
-              <div key={label} className="p-6 rounded-2xl bg-background/5 border border-background/10">
-                <div className="text-xs font-mono uppercase tracking-widest text-background/40 mb-2">{label}</div>
-                <div className="text-xl font-bold text-background">{value}</div>
+              <div key={label} className="p-6 rounded-2xl border border-white/10 bg-white/5">
+                <div
+                  className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-2"
+                  style={{ WebkitFontSmoothing: "antialiased" }}
+                >
+                  {label}
+                </div>
+                <div
+                  className="text-xl font-bold text-white"
+                  style={{ WebkitFontSmoothing: "antialiased" }}
+                >
+                  {value}
+                </div>
               </div>
             ))}
-            <div className="col-span-2 p-6 rounded-2xl bg-primary/10 border border-primary/20">
-              <div className="text-xs font-mono uppercase tracking-widest text-primary mb-2">Featured Through</div>
-              <div className="text-sm text-background/70 leading-relaxed">
+            <div className="col-span-2 p-6 rounded-2xl border border-white/10 bg-white/5">
+              <div
+                className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-2"
+                style={{ WebkitFontSmoothing: "antialiased" }}
+              >
+                Featured Through
+              </div>
+              <div className="text-sm text-white/60 leading-relaxed">
                 University of Tampa · FAU Tech Runway · Investor Catalyst Hub · NARP
               </div>
             </div>
@@ -60,3 +86,5 @@ export const FounderStory = () => {
     </section>
   );
 };
+
+export default FounderStory;
