@@ -15,15 +15,15 @@ const solutions = [
 const ProblemSolution = () => {
   return (
     <>
-      {/* Problem */}
+      {/* Problem — white bg: use explicit dark text */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="container">
           <div className="max-w-2xl mb-12">
             <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">The Problem</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
               Bathing is one of care's most dangerous tasks.
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="mt-6 text-lg text-gray-500">
               Facilities face labor shortages, fall risks, and increasing operational pressure — while users often lose the privacy and independence they deserve.
             </p>
           </div>
@@ -31,14 +31,14 @@ const ProblemSolution = () => {
             {problems.map((p, i) => (
               <div key={i} className="p-7 rounded-2xl bg-red-50 border border-red-100">
                 <AlertTriangle className="w-6 h-6 text-primary mb-4" />
-                <p className="text-sm text-foreground/80 leading-relaxed">{p}</p>
+                <p className="text-sm text-gray-700 leading-relaxed">{p}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solution */}
+      {/* Solution — dark bg: foreground works fine */}
       <section className="py-24 lg:py-32 bg-surface-clinical">
         <div className="container">
           <div className="max-w-2xl mb-12">
