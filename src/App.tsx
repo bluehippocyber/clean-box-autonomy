@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Industries from "./pages/Industries.tsx";
-import Showcase from "./pages/Showcase.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -21,13 +20,14 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/showcase" element={<Showcase />} />
-          <Route path="/products" element={<Navigate to="/showcase" replace />} />
-          <Route path="/demo" element={<Navigate to="/showcase" replace />} />
-          <Route path="/reserve" element={<Navigate to="/showcase" replace />} />
-          <Route path="/waitlist" element={<Navigate to="/showcase" replace />} />
-          <Route path="/inquiry" element={<Navigate to="/showcase" replace />} />
-          <Route path="/buy" element={<Navigate to="/showcase" replace />} />
+          {/* /showcase and all legacy paths redirect home until content is ready */}
+          <Route path="/showcase" element={<Navigate to="/" replace />} />
+          <Route path="/products" element={<Navigate to="/" replace />} />
+          <Route path="/demo" element={<Navigate to="/" replace />} />
+          <Route path="/reserve" element={<Navigate to="/" replace />} />
+          <Route path="/waitlist" element={<Navigate to="/" replace />} />
+          <Route path="/inquiry" element={<Navigate to="/" replace />} />
+          <Route path="/buy" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
