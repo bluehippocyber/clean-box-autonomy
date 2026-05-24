@@ -1,5 +1,4 @@
-import { ArrowRight, Quote } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Quote } from "lucide-react";
 
 const FounderStory = () => {
   return (
@@ -26,21 +25,12 @@ const FounderStory = () => {
             <p className="mt-8 text-background/70 leading-relaxed">
               Clean Box was created to restore what traditional bathing care had taken away — dignity, independence, and confidence. By blending compassion with precision engineering, Terrance King built a new category of personal care technology.
             </p>
-            <div className="mt-10">
-              <Link
-                to="/showcase"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
-              >
-                View Showcase
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
           </div>
           <div className="space-y-6">
             {[
               { stat: "66.7%", label: "Reduction in bathing time per resident" },
               { stat: "Zero",  label: "Caregiver injuries during automated bathing cycle" },
-              { stat: "3×",    label: "Increase in resident satisfaction scores" },
+              { stat: "3×",   label: "Increase in resident satisfaction scores" },
             ].map(({ stat, label }) => (
               <div key={stat} className="p-6 rounded-2xl bg-background/5 border border-background/10">
                 <div className="text-3xl font-bold text-primary mb-1">{stat}</div>
