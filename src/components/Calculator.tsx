@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 
 const TRADITIONAL_MINUTES = 30;
 const CLEANBOX_MINUTES = 10;
@@ -36,7 +35,7 @@ const ResultCard = ({ label, value, sub }) => (
   </div>
 );
 
-const Calculator = ({ showcaseMode = false }) => {
+const Calculator = () => {
   const [residents, setResidents] = useState(100);
   const [bathsPerWeek, setBathsPerWeek] = useState(3);
   const [hourlyWage, setHourlyWage] = useState(13.60);
@@ -119,16 +118,6 @@ const Calculator = ({ showcaseMode = false }) => {
             </div>
           </div>
         </div>
-
-        {showcaseMode ? (
-          <a href="https://buy.stripe.com/cleanbox-reserve-360" className="block w-full py-4 bg-white text-black font-bold text-base rounded-full text-center hover:bg-white/90 transition-all shadow-lg">
-            Purchase Ticket / Access Showcase
-          </a>
-        ) : (
-          <Link to="/showcase" className="block w-full py-4 bg-white text-black font-bold text-base rounded-full text-center hover:bg-white/90 transition-all shadow-lg">
-            View Showcase →
-          </Link>
-        )}
 
         <p className="text-xs text-white/25 text-center leading-relaxed">
           Estimates are for planning purposes only. Actual savings vary by facility workflow, staffing model, resident acuity, wage rates, and operating procedures.
