@@ -2,7 +2,6 @@ import { Quote } from "lucide-react";
 
 const stats = [
   { stat: "66.7%", label: "Reduction in bathing time per resident" },
-  { stat: "3×", label: "Increase in resident satisfaction scores" },
 ];
 
 const FounderStory = () => {
