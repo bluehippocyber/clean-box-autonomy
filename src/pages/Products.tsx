@@ -1,7 +1,7 @@
 import { Check, ArrowRight, Building2, Home, Star, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 const tsunamiFeatures = [
