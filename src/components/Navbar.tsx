@@ -4,10 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/cleanbox-logo.png";
 
 const links = [
-  { label: "Home",       href: "/",          type: "route" },
+  { label: "Home", href: "/", type: "route" },
   { label: "Industries", href: "/industries", type: "route" },
-  { label: "About",      href: "/about",      type: "route" },
-  { label: "Contact",    href: "contact",     type: "scroll" },
+  { label: "About", href: "/about", type: "route" },
+  { label: "Contact", href: "contact", type: "scroll" },
 ];
 
 const Navbar = () => {
@@ -70,8 +70,14 @@ const Navbar = () => {
           {links.map((l) => <NavItem key={l.href} {...l} />)}
         </div>
 
-        {/* Showcase CTA removed — route not yet live */}
-        <div className="hidden lg:block" />
+        <div className="hidden lg:block">
+          <Link
+            to="/showcase"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+          >
+            View Showcase
+          </Link>
+        </div>
 
         <button
           className="lg:hidden text-foreground"
@@ -86,6 +92,13 @@ const Navbar = () => {
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border px-4 pb-6">
           <div className="flex flex-col gap-4 pt-4">
             {links.map((l) => <NavItem key={l.href} {...l} />)}
+            <Link
+              to="/showcase"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors w-fit"
+              onClick={() => setOpen(false)}
+            >
+              View Showcase
+            </Link>
           </div>
         </div>
       )}
