@@ -107,7 +107,6 @@ const Products = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover"
-                style={{ filter: "blur(1.5px)" }}
               />
             </div>
           </div>
@@ -151,7 +150,6 @@ const Products = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover"
-                style={{ filter: "blur(1.5px)" }}
               />
             </div>
           </div>
