@@ -46,15 +46,9 @@ const Hero = () => {
               to="/showcase"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
             >
-              View Showcase
+              Reserve Showcase Access
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary/50 hover:text-primary transition-colors"
-            >
-              Contact Us
-            </button>
           </div>
 
           <p className="mt-10 text-xs text-muted-foreground">
