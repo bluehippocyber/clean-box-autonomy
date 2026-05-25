@@ -2,13 +2,13 @@ import { Heart, Home, Shield, Building2, Sparkles, Globe } from "lucide-react";
 
 const markets = [
   { icon: Building2, label: "Nursing Homes" },
-  { icon: Heart,     label: "Hospitals" },
-  { icon: Home,      label: "Home Care" },
-  { icon: Shield,    label: "Rehab Centers" },
-  { icon: Heart,     label: "Disability Support" },
-  { icon: Shield,    label: "Veterans Care" },
+  { icon: Heart, label: "Hospitals" },
+  { icon: Home, label: "Home Care" },
+  { icon: Shield, label: "Rehab Centers" },
+  { icon: Heart, label: "Disability Support" },
+  { icon: Shield, label: "Veterans Care" },
   { icon: Building2, label: "Government & Institutional" },
-  { icon: Sparkles,  label: "Luxury Wellness" },
+  { icon: Sparkles, label: "Luxury Wellness" },
 ];
 
 const MarketsServed = () => {
@@ -17,11 +17,11 @@ const MarketsServed = () => {
       <div className="container">
         <div className="max-w-2xl mb-14">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Markets Served</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
             One platform.{" "}
             <span className="text-primary">Every care environment.</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg text-gray-600">
             Clean Box technology is built to solve bathing challenges wherever safety, dignity, and operational efficiency matter most.
           </p>
         </div>
@@ -32,7 +32,7 @@ const MarketsServed = () => {
               className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-secondary/50 border border-border hover:border-primary/30 hover:bg-primary/5 hover:shadow-card transition-all duration-300 text-center"
             >
               <Icon className="w-7 h-7 text-primary" />
-              <span className="text-sm font-medium text-foreground">{label}</span>
+              <span className="text-sm font-medium text-gray-700">{label}</span>
             </div>
           ))}
         </div>
