@@ -46,8 +46,14 @@ const Industries = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 bg-background">
-        <div className="container">
+      <section className="relative pt-40 pb-24 bg-background overflow-hidden">
+        <div className="absolute inset-0">
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-30">
+            <source src="/videos/industries.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+        </div>
+        <div className="relative container">
           <div className="max-w-3xl">
             <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">Industries</div>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-foreground">
