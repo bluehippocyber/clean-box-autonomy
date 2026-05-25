@@ -4,10 +4,10 @@ import { ArrowRight, Target, Heart, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const values = [
-  { icon: Heart,   title: "Dignity First",      desc: "Every design decision starts with one question: does this restore dignity to the person using it?" },
-  { icon: Shield,  title: "Safety by Design",   desc: "Engineered to eliminate fall risk, caregiver strain, and hygiene gaps in every care environment." },
-  { icon: Target,  title: "Operational Impact", desc: "Reducing bathing time by 66.7% frees staff for higher-value care — measurable ROI from day one." },
-  { icon: Zap,     title: "Built to Scale",     desc: "From single homes to 500-bed facilities, Clean Box adapts to the care environment — not the other way around." },
+  { icon: Heart, title: "Dignity First", desc: "Every design decision starts with one question: does this restore dignity to the person using it?" },
+  { icon: Shield, title: "Safety by Design", desc: "Engineered to eliminate fall risk, caregiver strain, and hygiene gaps in every care environment." },
+  { icon: Target, title: "Operational Impact", desc: "Reducing bathing time by 66.7% frees staff for higher-value care — measurable ROI from day one." },
+  { icon: Zap, title: "Built to Scale", desc: "From single homes to 500-bed facilities, Clean Box adapts to the care environment — not the other way around." },
 ];
 
 const About = () => {
@@ -60,7 +60,7 @@ const About = () => {
         <div className="container">
           <div className="max-w-2xl mb-14">
             <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">Our Values</div>
-            <h2 className="text-4xl font-bold tracking-tight text-foreground">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900">
               What drives every decision.
             </h2>
           </div>
