@@ -9,6 +9,7 @@ import Industries from "./pages/Industries.tsx";
 import Products from "./pages/Products.tsx";
 import Showcase from "./pages/Showcase.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CleanboxBot from "./components/CleanboxBot";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
+    <CleanboxBot />
     </TooltipProvider>
   </QueryClientProvider>
 );
