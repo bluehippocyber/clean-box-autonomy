@@ -42,9 +42,8 @@ const Products = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* Hero — dark cinematic style matching main page */}
-      <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 bg-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground to-foreground/90 pointer-events-none" />
+      {/* Hero — black background, inherits from bg-background (dark theme) */}
+      <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden" style={{ backgroundColor: '#0a0a0a' }}>
         <div className="container relative z-10 text-center max-w-4xl mx-auto">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">
             Our Products
@@ -54,7 +53,7 @@ const Products = () => {
             <br />
             <span className="text-primary">One Future of Bathing.</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
             Explore Clean Box Wave and Clean Box Tsunami — engineered to transform hygiene care through safety, dignity, and modern design.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -167,7 +166,7 @@ const Products = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">Compare Models</h2>
           </div>
           <div className="rounded-3xl border border-border overflow-hidden shadow-card">
-            <div className="grid grid-cols-3 bg-foreground text-background">
+            <div className="grid grid-cols-3" style={{ backgroundColor: '#0a0a0a' }}>
               <div className="p-5 text-xs font-mono uppercase tracking-widest text-white/80">Feature</div>
               <div className="p-5 text-sm font-bold text-white border-l border-white/10">Wave</div>
               <div className="p-5 text-sm font-bold text-primary border-l border-white/10">Tsunami</div>
@@ -184,7 +183,7 @@ const Products = () => {
       </section>
 
       {/* Commercial Buyers */}
-      <section className="py-24 lg:py-32 bg-foreground text-background">
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#0a0a0a' }}>
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
             <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">Commercial</div>
