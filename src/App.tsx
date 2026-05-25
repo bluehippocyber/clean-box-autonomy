@@ -10,6 +10,7 @@ import Products from "./pages/Products.tsx";
 import Showcase from "./pages/Showcase.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CleanboxBot from "./components/CleanboxBot";
+import Blog from "./pages/Blog.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/products" element={<Products />} />
           <Route path="/showcase" element={<Showcase />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/demo" element={<Navigate to="/" replace />} />
           <Route path="/reserve" element={<Navigate to="/" replace />} />
           <Route path="/waitlist" element={<Navigate to="/" replace />} />
