@@ -12,9 +12,6 @@ const Footer = () => {
               The future of personal care, engineered for dignity.
             </p>
             <div className="mt-3 text-sm text-background/50 space-y-1">
-              <a href="mailto:T.King@cleanboxent.com" className="hover:text-primary transition-colors block">
-                T.King@cleanboxent.com
-              </a>
               <a href="mailto:Cleanboxinfo@cleanboxent.com" className="hover:text-primary transition-colors block">
                 Cleanboxinfo@cleanboxent.com
               </a>
