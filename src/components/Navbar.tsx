@@ -7,6 +7,7 @@ const links = [
   { label: "Home", href: "/", type: "route" },
   { label: "Industries", href: "/industries", type: "route" },
   { label: "Products", href: "/products", type: "route" },
+  { label: "Blog", href: "/blog", type: "route" },
   { label: "About", href: "/about", type: "route" },
   { label: "Contact", href: "contact", type: "scroll" },
 ];
