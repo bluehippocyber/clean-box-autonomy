@@ -103,7 +103,7 @@ const Products = () => {
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-card aspect-[4/3]">
               <video
-                src="/videos/tsunami.mp4"
+                src="/videos/Tsunami.%20.mp4"
                 autoPlay
                 loop
                 muted
