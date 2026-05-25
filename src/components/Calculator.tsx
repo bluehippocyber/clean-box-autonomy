@@ -86,11 +86,11 @@ const Calculator = () => {
 
       {/* Results */}
       <div className="space-y-4">
-        <div className="rounded-2xl bg-white text-black p-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-black/50 mb-1">Estimated Annual Labor Savings</p>
-          <p className="text-5xl font-bold tabular-nums leading-none mt-2">{fmt(r.annualSavings)}</p>
-          <p className="text-sm text-black/50 mt-2">per year</p>
-          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black text-white text-xs font-semibold">
+        <div className="rounded-2xl bg-white/5 border border-white/10 text-white p-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Estimated Annual Labor Savings</p>
+          <p className="text-5xl font-bold tabular-nums leading-none mt-2 text-white">{fmt(r.annualSavings)}</p>
+          <p className="text-sm text-white/50 mt-2">per year</p>
+          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary text-white text-xs font-semibold">
             {r.timeReductionPercent.toFixed(0)}% less bathing time
           </div>
         </div>
