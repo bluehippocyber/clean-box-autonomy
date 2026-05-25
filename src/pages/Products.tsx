@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
-import tsunami from "@/assets/cleanbox-tsunami-hero.png";
 
 const tsunamiFeatures = [
   "Mobile wheel-based platform for placement flexibility",
@@ -102,8 +101,16 @@ const Products = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative rounded-3xl overflow-hidden shadow-card">
-              <img src={tsunami} alt="Clean Box Tsunami" className="w-full h-full object-cover" />
+            <div className="relative rounded-3xl overflow-hidden shadow-card aspect-[4/3]">
+              <video
+                src="/videos/tsunami.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                style={{ filter: "blur(1.5px)" }}
+              />
               <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-red">
                 Flagship
               </div>
@@ -142,11 +149,18 @@ const Products = () => {
                 </Button>
               </div>
             </div>
-            <div className="lg:order-1 relative rounded-3xl overflow-hidden bg-foreground aspect-square flex items-center justify-center">
-              <div className="text-center p-12">
-                <div className="text-8xl font-black text-white/10 tracking-tight">WAVE</div>
-                <div className="mt-4 text-sm font-semibold text-white/50 uppercase tracking-widest">Clean Box Wave</div>
-                <div className="mt-2 text-xs text-white/30 uppercase tracking-wider">Institutional Release 2026</div>
+            <div className="lg:order-1 relative rounded-3xl overflow-hidden shadow-card aspect-[4/3]">
+              <video
+                src="/videos/wave.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                style={{ filter: "blur(1.5px)" }}
+              />
+              <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-red">
+                Institutional
               </div>
             </div>
           </div>
