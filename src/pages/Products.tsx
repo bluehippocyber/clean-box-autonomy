@@ -42,10 +42,22 @@ const Products = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-soft relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none" />
-        <div className="container relative text-center max-w-4xl mx-auto">
+      {/* Hero — matches main page cinematic video style */}
+      <section className="relative min-h-[70vh] flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <video
+            src="/videos/Tsunami.%20.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ filter: "blur(7px)", transform: "scale(1.03)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/95" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+        </div>
+        <div className="container relative z-10 py-16 lg:py-24 text-center max-w-4xl mx-auto">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">
             Our Products
           </div>
@@ -69,6 +81,7 @@ const Products = () => {
             </Button>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </section>
 
       {/* Tsunami Detail */}
@@ -76,7 +89,6 @@ const Products = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">Flagship Model</div>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
                 Clean Box Tsunami
               </h2>
@@ -86,7 +98,7 @@ const Products = () => {
               </p>
               <ul className="mt-8 space-y-4">
                 {tsunamiFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-foreground/85">
+                  <li key={f} className="flex items-start gap-3 text-foreground">
                     <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <span>{f}</span>
                   </li>
@@ -111,9 +123,6 @@ const Products = () => {
                 className="w-full h-full object-cover"
                 style={{ filter: "blur(1.5px)" }}
               />
-              <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-red">
-                Flagship
-              </div>
             </div>
           </div>
         </div>
@@ -124,7 +133,6 @@ const Products = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="lg:order-2">
-              <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">Institutional Model</div>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
                 Clean Box Wave
               </h2>
@@ -134,7 +142,7 @@ const Products = () => {
               </p>
               <ul className="mt-8 space-y-4">
                 {waveFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-foreground/85">
+                  <li key={f} className="flex items-start gap-3 text-foreground">
                     <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <span>{f}</span>
                   </li>
@@ -159,9 +167,6 @@ const Products = () => {
                 className="w-full h-full object-cover"
                 style={{ filter: "blur(1.5px)" }}
               />
-              <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-red">
-                Institutional
-              </div>
             </div>
           </div>
         </div>
@@ -176,15 +181,15 @@ const Products = () => {
           </div>
           <div className="rounded-3xl border border-border overflow-hidden shadow-card">
             <div className="grid grid-cols-3 bg-foreground text-background">
-              <div className="p-5 text-xs font-mono uppercase tracking-widest text-white/50">Feature</div>
+              <div className="p-5 text-xs font-mono uppercase tracking-widest text-white/80">Feature</div>
               <div className="p-5 text-sm font-bold text-white border-l border-white/10">Wave</div>
               <div className="p-5 text-sm font-bold text-primary border-l border-white/10">Tsunami</div>
             </div>
             {compareRows.map((row, i) => (
               <div key={row.label} className={`grid grid-cols-3 ${i % 2 === 0 ? "bg-surface-clinical" : "bg-card"}`}>
                 <div className="p-5 text-sm font-semibold text-foreground">{row.label}</div>
-                <div className="p-5 text-sm text-muted-foreground border-l border-border">{row.wave}</div>
-                <div className="p-5 text-sm text-muted-foreground border-l border-border">{row.tsunami}</div>
+                <div className="p-5 text-sm text-foreground/80 border-l border-border">{row.wave}</div>
+                <div className="p-5 text-sm text-foreground/80 border-l border-border">{row.tsunami}</div>
               </div>
             ))}
           </div>
@@ -197,7 +202,7 @@ const Products = () => {
           <div className="text-center mb-16">
             <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">Commercial</div>
             <h2 className="text-3xl md:text-4xl font-bold text-white">Commercial Buyers</h2>
-            <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
               Need multiple units for a facility or organization? We work directly with hospitals, healthcare groups, government buyers, hospitality groups, and distributors.
             </p>
           </div>
@@ -208,7 +213,7 @@ const Products = () => {
               { icon: Star, label: "Hospitality & Wellness" },
               { icon: Truck, label: "Distributors & Resellers" },
             ].map(({ icon: Icon, label }) => (
-              <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+              <div key={label} className="rounded-2xl border border-white/20 bg-white/10 p-6 text-center">
                 <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-sm font-semibold text-white">{label}</div>
               </div>
@@ -228,7 +233,6 @@ const Products = () => {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="cta" size="xl" onClick={scrollToContact}>Request Pricing</Button>
             <Button variant="outlineRed" size="xl" onClick={scrollToContact}>Book Private Demonstration</Button>
-            <Button variant="outline" size="xl" onClick={scrollToContact}>Speak With Commercial Sales</Button>
           </div>
         </div>
       </section>
