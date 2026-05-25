@@ -42,31 +42,19 @@ const Products = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* Hero — matches main page cinematic video style */}
-      <section className="relative min-h-[70vh] flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            src="/videos/Tsunami.%20.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            style={{ filter: "blur(7px)", transform: "scale(1.03)" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/95" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-        </div>
-        <div className="container relative z-10 py-16 lg:py-24 text-center max-w-4xl mx-auto">
+      {/* Hero — dark cinematic style matching main page */}
+      <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 bg-foreground overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground to-foreground/90 pointer-events-none" />
+        <div className="container relative z-10 text-center max-w-4xl mx-auto">
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-6">
             Our Products
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-foreground">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
             Two Elite Solutions.
             <br />
             <span className="text-primary">One Future of Bathing.</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
             Explore Clean Box Wave and Clean Box Tsunami — engineered to transform hygiene care through safety, dignity, and modern design.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -81,7 +69,6 @@ const Products = () => {
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </section>
 
       {/* Tsunami Detail */}
