@@ -6,6 +6,7 @@ import MarketsServed from "@/components/MarketsServed";
 import Calculator from "@/components/Calculator";
 import FloatingCTA from "@/components/FloatingCTA";
 import Footer from "@/components/Footer";
+import { Contact } from "@/components/Contact";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <FounderStory />
       <MarketsServed />
       <Calculator />
+      <Contact />
       <Footer />
       <FloatingCTA />
     </div>
