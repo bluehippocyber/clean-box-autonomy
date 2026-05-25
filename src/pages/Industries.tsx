@@ -14,13 +14,11 @@ const industries = [
     icon: Heart,
     title: "Hospitals & Acute Care",
     desc: "Maintain infection control standards while freeing nursing staff from one of the most physically demanding patient care tasks.",
-    stats: "Zero caregiver injuries on record",
   },
   {
     icon: Home,
     title: "Home Care & Private Duty",
     desc: "Give families peace of mind and clients their privacy back. One-touch operation means no caregiver presence required during the bath.",
-    stats: "3× resident satisfaction increase",
   },
   {
     icon: Shield,
