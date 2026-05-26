@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
 
@@ -8,7 +9,7 @@ const POSTS = [
     date: "January 15, 2025",
     title: "Overcoming Bathing Challenges for CNAs and Nurses: How Automation Can Help",
     excerpt: "Bathing patients is a fundamental yet challenging aspect of caregiving that Certified Nursing Assistants (CNAs) and nurses face daily. Providing this essential care requires balancing safety, dignity, and comfort, but the process is often fraught with difficulty.",
-    link: "https://cleanboxent.com/overcoming-bathing-challenges-for-cnas-and-nurses-how-automation-can-help/",
+    link: "/blog/overcoming-bathing-challenges",
     tag: "Workforce",
   },
   {
@@ -16,7 +17,7 @@ const POSTS = [
     date: "November 16, 2023",
     title: "The Empowerment of Autonomy and Privacy: Fully Autonomous Baths Redefining Personal Hygiene",
     excerpt: "In the journey of life, the essence of autonomy and privacy holds an invaluable place, particularly when it comes to personal hygiene. For individuals experiencing functional loss, the quest for autonomy in personal care becomes paramount.",
-    link: "https://cleanboxent.com/the-empowerment-of-autonomy-and-privacy-fully-autonomous-baths-redefining-personal-hygiene/",
+    link: "/blog/autonomy-and-privacy",
     tag: "Dignity & Privacy",
   },
   {
@@ -24,7 +25,7 @@ const POSTS = [
     date: "October 23, 2023",
     title: "Empowering Healthcare Workers: The Transformative Impact of Fully Autonomous Baths in Preventing Musculoskeletal Disorders",
     excerpt: "Healthcare workers are the unsung heroes of our society, providing care and comfort to those in need. Yet, this noble profession carries a heavy burden in the form of musculoskeletal disorders (MSDs).",
-    link: "https://cleanboxent.com/empowering-healthcare-workers-the-transformative-impact-of-fully-autonomous-baths-in-preventing-musculoskeletal-disorders/",
+    link: "/blog/empowering-healthcare-workers",
     tag: "Worker Safety",
   },
   {
@@ -32,7 +33,7 @@ const POSTS = [
     date: "October 8, 2023",
     title: "Bathing Safely: How Fully Autonomous Baths Protect Against Slip and Fall Incidents",
     excerpt: "For many, a bath carries an unforeseen danger — the risk of slipping and falling. This peril becomes especially pronounced for the elderly and disabled, who face the brunt of fall-related injuries.",
-    link: "https://cleanboxent.com/bathing-safely-how-fully-autonomous-baths-protect-against-slip-and-fall-incidents/",
+    link: "/blog/bathing-safely",
     tag: "Safety",
   },
   {
@@ -40,7 +41,7 @@ const POSTS = [
     date: "September 30, 2023",
     title: "Revolutionizing Healthcare: Fully Automatic Bathing Machines and the Fight Against Nosocomial Infections",
     excerpt: "In the realm of healthcare, the battle against nosocomial infections — also known as healthcare-associated infections — is an ongoing challenge bringing significant risks and burdens to patients worldwide.",
-    link: "https://cleanboxent.com/revolutionizing-healthcare-fully-automatic-bathing-machines-and-the-fight-against-nosocomial-infections/",
+    link: "/blog/infection-control",
     tag: "Infection Control",
   },
   {
@@ -48,7 +49,7 @@ const POSTS = [
     date: "September 15, 2023",
     title: "Nurturing Skin Health: Aromatherapy Dryer System in Fully Autonomous Bathing Machines",
     excerpt: "As we age, the skin becomes more susceptible to dryness due to environmental factors, making it crucial for elderly individuals to prioritize skincare. Autonomous bathing technology is redefining this care.",
-    link: "https://cleanboxent.com/nurturing-skin-health-aromatherapy-dryer-system-in-fully-autonomous-bathing-machines/",
+    link: "/blog/skin-health-aromatherapy",
     tag: "Wellness",
   },
   {
@@ -56,7 +57,7 @@ const POSTS = [
     date: "August 29, 2023",
     title: "Unleashing Wellness: The Transformative Physical and Mental Health Benefits of Fully Automatic Bathing",
     excerpt: "In a fast-paced world, self-care takes on a whole new level of importance, especially for the elderly and disabled. Embracing fully autonomous baths unlocks a realm of physical and mental health benefits.",
-    link: "https://cleanboxent.com/unleashing-wellness-the-transformative-physical-and-mental-health-benefits-of-fully-autonomous-baths/",
+    link: "/blog/unleashing-wellness",
     tag: "Wellness",
   },
   {
@@ -64,7 +65,7 @@ const POSTS = [
     date: "August 15, 2023",
     title: "Beyond Limitations: Embracing Fully Autonomous Bathing over Traditional Assistive Living Tubs",
     excerpt: "In the pursuit of providing accessible bathing solutions for the elderly and disabled, the world of assistive living tubs has seen significant advancements — but fully autonomous bathing goes further.",
-    link: "https://cleanboxent.com/beyond-limitations-embracing-fully-autonomous-bathing-over-traditional-assistive-living-tubs/",
+    link: "/blog/beyond-limitations",
     tag: "Innovation",
   },
   {
@@ -72,7 +73,7 @@ const POSTS = [
     date: "August 3, 2023",
     title: "Embracing Independence: Unraveling the Wonders of Fully Autonomous Bathing",
     excerpt: "In a time where technology is reforming every aspect of our lives, the realm of personal care has not been left untouched. Fully autonomous bathing is redefining the way we approach self-care and independence.",
-    link: "https://cleanboxent.com/embracing-independence-unraveling-the-wonders-of-fully-autonomous-bathing/",
+    link: "/blog/embracing-independence",
     tag: "Innovation",
   },
 ];
@@ -119,10 +120,8 @@ export default function Blog() {
           <div className="text-xs font-mono font-semibold uppercase tracking-widest text-foreground/40 mb-6">
             Latest Article
           </div>
-          <a
-            href={featured.link}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={featured.link}
             className="group block rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10 hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-300"
           >
             <div className="flex items-start justify-between gap-6 flex-wrap">
@@ -147,7 +146,7 @@ export default function Blog() {
                 <ArrowRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -159,11 +158,9 @@ export default function Blog() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((post) => (
-              <a
+              <Link
                 key={post.id}
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                to={post.link}
                 className="group flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -186,7 +183,7 @@ export default function Blog() {
                     Read article <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
