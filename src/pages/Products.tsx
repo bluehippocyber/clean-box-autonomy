@@ -60,9 +60,9 @@ export default function Products() {
   return (
     <div className="min-h-screen bg-background text-foreground">
 
+      <Navbar />
       {/* Hero */}
-      <section classN
-      <Navbar />ame="relative py-32 lg:py-40 bg-background overflow-hidden">
+      <section className="relative py-32 lg:py-40 bg-background overflow-hidden">
         <div className="absolute inset-0">
           <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-20">
             <source src="/videos/wave.mp4" type="video/mp4" />
