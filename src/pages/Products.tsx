@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 import { ArrowRight, Check, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -60,7 +61,8 @@ export default function Products() {
     <div className="min-h-screen bg-background text-foreground">
 
       {/* Hero */}
-      <section className="relative py-32 lg:py-40 bg-background overflow-hidden">
+      <section classN
+      <Navbar />ame="relative py-32 lg:py-40 bg-background overflow-hidden">
         <div className="absolute inset-0">
           <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-20">
             <source src="/videos/wave.mp4" type="video/mp4" />
