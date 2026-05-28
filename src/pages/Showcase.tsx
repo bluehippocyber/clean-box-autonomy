@@ -237,14 +237,7 @@ const Showcase = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const scrollToForm = (e: React.MouseEvent) => {
-    e.preventDefault();
-    formRef.current?.scrollIntoView({ behavior: "smooth" });
-    const firstInput = formRef.current?.querySelector<HTMLInputElement>("input[type='text']");
-    firstInput?.focus({ preventScroll: true });
+    window.open('https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00', '_blank');
   };
 
   const tier = TIERS[selectedTier];
@@ -268,10 +261,7 @@ const Showcase = () => {
             <span className="sc-brand-divider" />
             <span className="sc-brand-sub">Private Showcase · 08·06·26</span>
           </div>
-          <button className="sc-purchase-btn" onClick={scrollToForm}>
-            <span className="sc-pulse-dot" />
-            <span>Purchase Ticket</span>
-          </button>
+          <a href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00" target="_blank" rel="noopener noreferrer" className="sc-purchase-btn">Buy Tickets →</a>
         </header>
 
         <main className="sc-main">
@@ -307,10 +297,7 @@ const Showcase = () => {
                   <div className="sc-cd-unit"><div className="sc-cd-n">{countdown.s}</div><div className="sc-cd-u">Secs</div></div>
                 </div>
               </div>
-              <button className="sc-primary-cta" onClick={scrollToForm}>
-                <span>Purchase Ticket</span>
-                <span className="sc-cta-arrow" />
-              </button>
+              <a href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00" target="_blank" rel="noopener noreferrer" className="sc-primary-cta">Reserve Your Spot →</a>
             </div>
             <div className="sc-event-line">
               <span><strong>Aug 06, 2026</strong> · 3:00 — 6:00 PM EDT</span>
@@ -328,7 +315,7 @@ const Showcase = () => {
                 <p>Thank you. Confirmation for {tier.display} will arrive within 24 hours. Invoice sent on approval.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => { e.preventDefault(); window.open('https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00', '_blank'); }}>
                 <div className="sc-form-head">
                   <span className="sc-form-label">Reserve · Application</span>
                   <span className="sc-form-status"><span className="sc-live-dot" />Secure Session</span>
