@@ -73,14 +73,7 @@ scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-soft
 </div>
 
 <div className="hidden lg:block">
-<a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
-target="_blank"
-rel="noopener noreferrer"
-className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
->
-View Showcase
-</a>
+<Link to="/showcase" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors">View Showcase</Link>
 </div>
 
 <button
@@ -96,15 +89,7 @@ aria-label="Toggle menu"
 <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border px-4 pb-6">
 <div className="flex flex-col gap-4 pt-4">
 {links.map((l) => <NavItem key={l.href} {...l} />)}
-<a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
-target="_blank"
-rel="noopener noreferrer"
-className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors w-fit"
-onClick={() => setOpen(false)}
->
-View Showcase
-</a>
+<Link to="/showcase" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors w-fit">View Showcase</Link>
 </div>
 </div>
 )}
