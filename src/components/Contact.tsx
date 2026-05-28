@@ -22,8 +22,26 @@ export const Contact = () => {
       toast.error("Please enter your name and email to continue.");
       return;
     }
+    const subject = encodeURIComponent(
+      `[Clean Box Inquiry] ${general.name}${general.company ? ' – ' + general.company : ''}`
+    );
+    const body = encodeURIComponent(
+      [
+        `Name: ${general.name}`,
+        general.company ? `Company: ${general.company}` : '',
+        general.title ? `Title: ${general.title}` : '',
+        `Email: ${general.email}`,
+        general.phone ? `Phone: ${general.phone}` : '',
+        general.location ? `Location: ${general.location}` : '',
+        general.industry ? `Industry: ${general.industry}` : '',
+        general.message ? `\nMessage:\n${general.message}` : '',
+      ].filter(Boolean).join('\n')
+    );
+    window.open(
+      `mailto:Cleanboxinfo@cleanboxent.com?subject=${subject}&body=${body}`,
+      '_self'
+    );
     toast.success("Inquiry received. The Clean Box team will follow up within 24 hours.");
-    setSubmitted(true);
   };
 
   if (submitted) {
