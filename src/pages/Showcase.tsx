@@ -219,6 +219,7 @@ const Showcase = () => {
   const formRef = useRef<HTMLElement>(null);
   const [countdown, setCountdown] = useState(getCountdown());
   const [selectedTier, setSelectedTier] = useState(0);
+  const TIER_LINKS = ['https://buy.stripe.com/14A6ol1qX9MeclkcL04ZG01', 'https://buy.stripe.com/9B6eVeglRgaCfUw5iy4ZG02', 'https://buy.stripe.com/aFa5kE6Lh6A29w86mC4ZG03'];
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -237,7 +238,7 @@ const Showcase = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.open('https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00', '_blank');
+    window.open('${TIER_LINKS[selectedTier]}', '_blank');
   };
 
   const tier = TIERS[selectedTier];
@@ -261,7 +262,7 @@ const Showcase = () => {
             <span className="sc-brand-divider" />
             <span className="sc-brand-sub">Private Showcase · 08·06·26</span>
           </div>
-          <a href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00" target="_blank" rel="noopener noreferrer" className="sc-purchase-btn">Buy Tickets →</a>
+          <a href={TIER_LINKS[selectedTier]} target="_blank" rel="noopener noreferrer" className="sc-purchase-btn">Buy Tickets →</a>
         </header>
 
         <main className="sc-main">
@@ -297,7 +298,7 @@ const Showcase = () => {
                   <div className="sc-cd-unit"><div className="sc-cd-n">{countdown.s}</div><div className="sc-cd-u">Secs</div></div>
                 </div>
               </div>
-              <a href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00" target="_blank" rel="noopener noreferrer" className="sc-primary-cta">Reserve Your Spot →</a>
+              <a href={TIER_LINKS[selectedTier]} target="_blank" rel="noopener noreferrer" className="sc-primary-cta">Reserve Your Spot →</a>
             </div>
             <div className="sc-event-line">
               <span><strong>Aug 06, 2026</strong> · 3:00 — 6:00 PM EDT</span>
@@ -315,7 +316,7 @@ const Showcase = () => {
                 <p>Thank you. Confirmation for {tier.display} will arrive within 24 hours. Invoice sent on approval.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); window.open('https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00', '_blank'); }}>
+              <form onSubmit={(e) => { e.preventDefault(); window.open('${TIER_LINKS[selectedTier]}', '_blank'); }}>
                 <div className="sc-form-head">
                   <span className="sc-form-label">Reserve · Application</span>
                   <span className="sc-form-status"><span className="sc-live-dot" />Secure Session</span>
