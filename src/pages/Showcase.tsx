@@ -262,7 +262,7 @@ const Showcase = () => {
             <span className="sc-brand-divider" />
             <span className="sc-brand-sub">Private Showcase · 08·06·26</span>
           </div>
-          <a href={TIER_LINKS[selectedTier]} target="_blank" rel="noopener noreferrer" className="sc-purchase-btn">Buy Tickets →</a>
+          
         </header>
 
         <main className="sc-main">
