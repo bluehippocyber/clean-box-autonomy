@@ -124,7 +124,7 @@ Reserve Showcase Access
 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
 </a>
 <a
-href="#contact"
+href="/" onClick={(e) => { e.preventDefault(); sessionStorage.setItem('scrollTo', 'contact'); window.location.replace(window.location.origin + '/#/'); }}
 className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary/50 hover:text-primary transition-colors"
 >
 Become a Pilot Partner
@@ -250,7 +250,7 @@ className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-s
 Reserve Showcase Access
 <ArrowRight className="w-4 h-4" />
 </a>
-<a href="#contact" className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground/70 hover:text-primary hover:border-primary/50 transition-colors">
+<a href="/" onClick={(e) => { e.preventDefault(); sessionStorage.setItem('scrollTo', 'contact'); window.location.replace(window.location.origin + '/#/'); }} className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground/70 hover:text-primary hover:border-primary/50 transition-colors">
 Request Early Buyer Info
 </a>
 </div>
@@ -303,7 +303,7 @@ className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-s
 Reserve Showcase Access
 <ArrowRight className="w-4 h-4" />
 </a>
-<a href="#contact" className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground/70 hover:text-primary hover:border-primary/50 transition-colors">
+<a href="/" onClick={(e) => { e.preventDefault(); sessionStorage.setItem('scrollTo', 'contact'); window.location.replace(window.location.origin + '/#/'); }} className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground/70 hover:text-primary hover:border-primary/50 transition-colors">
 Request Early Buyer Info
 </a>
 </div>
@@ -400,7 +400,7 @@ Reserve Showcase Access
 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
 </a>
 <a
-href="#contact"
+href="/" onClick={(e) => { e.preventDefault(); sessionStorage.setItem('scrollTo', 'contact'); window.location.replace(window.location.origin + '/#/'); }}
 className="inline-flex items-center gap-2 rounded-lg border border-background/20 px-7 py-3.5 text-sm font-semibold text-background hover:border-primary/50 hover:text-primary transition-colors"
 >
 Become a Pilot Partner
