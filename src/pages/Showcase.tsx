@@ -219,7 +219,7 @@ const Showcase = () => {
   const formRef = useRef<HTMLElement>(null);
   const [countdown, setCountdown] = useState(getCountdown());
   const [selectedTier, setSelectedTier] = useState(0);
-  const TIER_LINKS = ['https://buy.stripe.com/14A6ol1qX9MeclkcL04ZG01', 'https://buy.stripe.com/9B6eVeglRgaCfUw5iy4ZG02', 'https://buy.stripe.com/aFa5kE6Lh6A29w86mC4ZG03'];
+  const TIER_LINKS = ['https://buy.stripe.com/14A6oI1qX9MecIkcL04ZG01', 'https://buy.stripe.com/9B6eVeglRgaCfUw5iy4ZG02', 'https://buy.stripe.com/aFa5kE6Lh6A29w86mC4ZG03'];
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
