@@ -298,7 +298,7 @@ const Showcase = () => {
                   <div className="sc-cd-unit"><div className="sc-cd-n">{countdown.s}</div><div className="sc-cd-u">Secs</div></div>
                 </div>
               </div>
-              <button type="button" className="sc-primary-cta" onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}>Reserve Your Spot <span className="sc-cta-arrow" /></button>
+              
             </div>
             <div className="sc-event-line">
               <span><strong>Aug 06, 2026</strong> · 3:00 — 6:00 PM EDT</span>
@@ -316,7 +316,7 @@ const Showcase = () => {
                 <p>Thank you. Confirmation for {tier.display} will arrive within 24 hours. Invoice sent on approval.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); window.open(TIER_LINKS[selectedTier], '_blank'); }}>
+              <form onSubmit={(e) => { e.preventDefault(); const form = e.target as HTMLFormElement; if (!form.checkValidity()) { form.reportValidity(); return; } window.open(TIER_LINKS[selectedTier], '_blank'); }}>
                 <div className="sc-form-head">
                   <span className="sc-form-label">Reserve · Application</span>
                   <span className="sc-form-status"><span className="sc-live-dot" />Secure Session</span>
@@ -333,7 +333,7 @@ const Showcase = () => {
                 <div className="sc-tier-label">Select Tier</div>
                 <div className="sc-tier-strip" role="radiogroup" aria-label="Ticket tier">
                   {TIERS.map((t, i) => (
-                    <button key={t.id} type="button" className={`sc-tier-opt${selectedTier === i ? " sc-tier-selected" : ""}`} onClick={() => { setSelectedTier(i); window.open(TIER_LINKS[i], '_blank'); }} aria-pressed={selectedTier === i}>
+                    <button key={t.id} type="button" className={`sc-tier-opt${selectedTier === i ? " sc-tier-selected" : ""}`} onClick={() => setSelectedTier(i)} aria-pressed={selectedTier === i}>
                       <div className="sc-tier-name">{t.label}</div>
                       <div className="sc-tier-title">{t.title}</div>
                       <div className="sc-tier-price">{t.price}</div>
