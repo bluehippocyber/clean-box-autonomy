@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from 'react';
 import { ArrowRight, Building2, Users, Mic, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,16 @@ import { toast } from "sonner";
 
 export const Contact = () => {
   const [tab, setTab] = useState<"general" | "buyer">("general");
+
+  useEffect(() => {
+    if (sessionStorage.getItem('scrollTo') === 'contact') {
+      sessionStorage.removeItem('scrollTo');
+      setTimeout(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  }, []);
+
   const [submitted, setSubmitted] = useState(false);
 
   const [general, setGeneral] = useState({ name: "", company: "", title: "", email: "", phone: "", location: "", industry: "", message: "" });
