@@ -26,32 +26,40 @@ export const Contact = () => {
   const updateG = (k: string, v: string) => setGeneral(p => ({ ...p, [k]: v }));
   const updateB = (k: string, v: string) => setBuyer(p => ({ ...p, [k]: v }));
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!general.name || !general.email) {
       toast.error("Please enter your name and email to continue.");
       return;
     }
-    const subject = encodeURIComponent(
-      `[Clean Box Inquiry] ${general.name}${general.company ? ' – ' + general.company : ''}`
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${general.name}`,
-        general.company ? `Company: ${general.company}` : '',
-        general.title ? `Title: ${general.title}` : '',
-        `Email: ${general.email}`,
-        general.phone ? `Phone: ${general.phone}` : '',
-        general.location ? `Location: ${general.location}` : '',
-        general.industry ? `Industry: ${general.industry}` : '',
-        general.message ? `\nMessage:\n${general.message}` : '',
-      ].filter(Boolean).join('\n')
-    );
-    window.open(
-      `mailto:Cleanboxinfo@cleanboxent.com?subject=${subject}&body=${body}`,
-      '_self'
-    );
-    toast.success("Inquiry received. The Clean Box team will follow up within 24 hours.");
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/Cleanboxinfo@cleanboxent.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: general.name,
+          email: general.email,
+          company: general.company || 'N/A',
+          title: general.title || 'N/A',
+          phone: general.phone || 'N/A',
+          location: general.location || 'N/A',
+          industry: general.industry || 'N/A',
+          message: general.message || 'N/A',
+          _subject: `New Inquiry – ${general.name} (${general.company || 'Clean Box Website'})`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        toast.success("Inquiry received! The Clean Box team will follow up within 24 hours.");
+        setGeneral({ name: '', company: '', title: '', email: '', phone: '', location: '', industry: '', message: '' });
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      toast.error("Couldn\'t send — please email Cleanboxinfo@cleanboxent.com directly.");
+    }
   };
 
   if (submitted) {
