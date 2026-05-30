@@ -115,7 +115,7 @@ Redefining independence, dignity, and safety through autonomous bathing technolo
 </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
 <a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
+href="https://www.cleanboxent.com/#/showcase"
 target="_blank"
 rel="noopener noreferrer"
 className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
@@ -242,7 +242,7 @@ Designed for continuous daily deployment in healthcare and commercial environmen
 </div>
 <div className="flex flex-col sm:flex-row gap-3">
 <a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
+href="https://www.cleanboxent.com/#/showcase"
 target="_blank"
 rel="noopener noreferrer"
 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
@@ -295,7 +295,7 @@ Engineered for luxury care, elite wellness, and fully mobile deployment. Self-co
 </div>
 <div className="flex flex-col sm:flex-row gap-3">
 <a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
+href="https://www.cleanboxent.com/#/showcase"
 target="_blank"
 rel="noopener noreferrer"
 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
@@ -391,7 +391,7 @@ The first live public demonstration of Clean Box technology is coming. Reserve y
 </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
 <a
-href="https://buy.stripe.com/7sY00k5HdbUm4bO3aq4ZG00"
+href="https://www.cleanboxent.com/#/showcase"
 target="_blank"
 rel="noopener noreferrer"
 className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
