@@ -56,8 +56,13 @@ const respond = (input: string): string => {
     return "Thanks for your interest in investing in Clean Box. I'm not able to share investment terms, but I can route you to founder Terrance King directly. Please send your name, organization, email, phone, and a short summary of your interest through the Contact form and Terrance will follow up.";
   }
 
+  // Social media — must be BEFORE media/press to prevent "social media" matching media handler
+  if (/(social|instagram|facebook|twitter|x\.com|follow|handles)/.test(q)) {
+    return "You can follow Clean Box on social media: X (Twitter) at https://x.com/CleanBoxEnt, Instagram at https://www.instagram.com/cleanboxent, and Facebook at https://www.facebook.com/CleanBoxEnt for product news and showcase updates.";
+  }
+
   // Media / press
-  if (/(media|press|journalist|reporter|podcast|interview|article|feature|story about)/.test(q)) {
+  if (/(press|journalist|reporter|podcast|interview|article|feature|story about)/.test(q) || (/\bmedia\b/.test(q) && !/social/.test(q))) {
     return "Happy to help with media inquiries. Please share your outlet, contact info, deadline, topic, and any interview details through the Contact form and the Clean Box team will follow up promptly.";
   }
 
@@ -73,7 +78,7 @@ const respond = (input: string): string => {
 
   // Tsunami only
   if (/tsunami/.test(q) && !/wave/.test(q)) {
-    return "The Clean Box Tsunami is our premium mobile model, starting at $80,000. It's self-contained with a 40-gallon fresh water tank and a 40-gallon waste water tank, can operate unplugged, includes an entertainment system, and rolls between rooms. It's a strong fit for premium healthcare, wellness, mobile use, and flexible-placement settings where onboard water and waste capacity matter.";
+    return "The Clean Box Tsunami is our premium mobile model, starting at $80,000. It's self-contained with a 40-gallon fresh water tank and a 40-gallon waste water tank, can operate unplugged, includes an entertainment system, and rolls between rooms. It's a strong fit for premium healthcare, wellness, mobile use, and flexible-placement settings where onboard water and waste capacity matter. No plumbing connection is required.";
   }
 
   // Pricing
@@ -81,8 +86,8 @@ const respond = (input: string): string => {
     return "The Clean Box Wave starts at $25,000 and the Tsunami starts at $80,000. For a quote tailored to your facility — including model, quantity, location, and timeline — share those details through the Contact form or email Cleanboxinfo@cleanboxent.com and the team will follow up.";
   }
 
-  // How it works
-  if (/(how it work|how does it|how do you use|process|step|cleans|scrub|rinse|drying|dry|workflow|operate|operation|use it)/.test(q)) {
+  // How it works — includes "how does Clean Box work" and similar phrasings
+  if (/(how it work|how does it|how does.*work|how clean box|how do you use|process|step|cleans|scrub|rinse|drying|dry|workflow|operate|operation|use it)/.test(q)) {
     return "Clean Box lets a person bathe while seated. The user enters and sits down, then they or a caregiver selects a cycle. The system automates washing, scrubbing, rinsing, and drying while the user stays seated, and drying support helps reduce wet-exit risk before the user exits — with staff assistance if needed. It's a bathing and hygiene technology, not a medical treatment device.";
   }
 
@@ -159,11 +164,6 @@ const respond = (input: string): string => {
   // Founder / about
   if (/(found|terrance|king|who made|who built|who started|who creat|story|about|mission|why was|history|origin)/.test(q)) {
     return "Clean Box was founded by Terrance King after his grandmother died in a nursing home due to bedsores and inadequate bathing practices. After seeing how difficult and undignified bed baths can be for patients — and how physically demanding they are for caregivers — he created Clean Box to restore dignity, independence, safety, and consistency to bathing.";
-  }
-
-  // Social
-  if (/(social|instagram|facebook|twitter|x\.com|follow|handles)/.test(q)) {
-    return "You can follow Clean Box on social media: X (Twitter) at https://x.com/CleanBoxEnt, Instagram at https://www.instagram.com/cleanboxent, and Facebook at https://www.facebook.com/CleanBoxEnt for product news and showcase updates.";
   }
 
   // Contact
