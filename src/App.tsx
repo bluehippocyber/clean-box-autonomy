@@ -12,14 +12,12 @@ import NotFound from "./pages/NotFound.tsx";
 import CleanboxBot from "./components/CleanboxBot";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
-import AccountWall from "./components/AccountWall";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <AccountWall />
       <Toaster />
       <Sonner />
       <HashRouter>
