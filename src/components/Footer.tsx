@@ -43,7 +43,7 @@ Cleanboxinfo@cleanboxent.com
 <div><Link to="/about" className="hover:text-primary transition-colors">About</Link></div>
 <div><Link to="/industries" className="hover:text-primary transition-colors">Industries</Link></div>
 <div><Link to="/products" className="hover:text-primary transition-colors">Products</Link></div>
-<div><Link to="/showcase" className="hover:text-primary transition-colors">Showcase</Link></div>
+<div><a href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Showcase</a></div>
 <div><Link to="/" className="hover:text-primary transition-colors">Contact</Link></div>
 </div>
 </div>

@@ -73,7 +73,7 @@ scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-soft
 </div>
 
 <div className="hidden lg:block">
-<Link to="/showcase" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors">View Showcase</Link>
+<a href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors">View Showcase</a>
 </div>
 
 <button
@@ -89,7 +89,7 @@ aria-label="Toggle menu"
 <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border px-4 pb-6">
 <div className="flex flex-col gap-4 pt-4">
 {links.map((l) => <NavItem key={l.href} {...l} />)}
-<Link to="/showcase" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors w-fit">View Showcase</Link>
+<a href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors w-fit">View Showcase</a>
 </div>
 </div>
 )}

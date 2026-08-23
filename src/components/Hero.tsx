@@ -42,13 +42,15 @@ const Hero = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              to="/showcase"
+            <a
+              href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
             >
               Reserve Showcase Access
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </div>
 
           <p className="mt-10 text-xs text-muted-foreground">

@@ -64,13 +64,15 @@ const Industries = () => {
               Clean Box technology adapts to the unique demands of each care setting — delivering measurable ROI, improved safety, and restored dignity across every market we serve.
             </p>
             <div className="mt-10">
-              <Link
-                to="/showcase"
+              <a
+                href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
               >
                 View Showcase
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -107,13 +109,15 @@ const Industries = () => {
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Explore our product showcase, request a demo, or reserve a unit for your organization.
           </p>
-          <Link
-            to="/showcase"
+          <a
+            href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white hover:bg-primary/90 transition-colors group"
           >
             View Showcase
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </a>
         </div>
       </section>
 

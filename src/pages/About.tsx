@@ -28,13 +28,15 @@ const About = () => {
               Clean Box Enterprise is a Tampa-based deep-tech company building automated bathing systems that restore independence, reduce caregiver burden, and modernize hygiene care for homes, facilities, and institutions worldwide.
             </p>
             <div className="mt-10">
-              <Link
-                to="/showcase"
+              <a
+                href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition-colors group"
               >
                 View Showcase
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

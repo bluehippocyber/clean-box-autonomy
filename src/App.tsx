@@ -7,11 +7,17 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Industries from "./pages/Industries.tsx";
 import Products from "./pages/Products.tsx";
-import Showcase from "./pages/Showcase.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CleanboxBot from "./components/CleanboxBot";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+
+const EVENTBRITE_SHOWCASE_URL = "https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453";
+
+const ShowcaseRedirect = () => {
+  window.location.href = EVENTBRITE_SHOWCASE_URL;
+  return null;
+};
 
 const queryClient = new QueryClient();
 
@@ -26,7 +32,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/showcase" element={<Showcase />} />
+          <Route path="/showcase" element={<ShowcaseRedirect />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/demo" element={<Navigate to="/" replace />} />

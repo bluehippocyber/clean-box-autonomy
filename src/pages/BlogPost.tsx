@@ -220,9 +220,9 @@ export default function BlogPost() {
         <div className="mt-14 rounded-2xl bg-white/5 border border-white/10 p-8 text-center">
           <h3 className="text-xl font-bold mb-3">Ready to See CleanBox in Action?</h3>
           <p className="text-white/60 mb-6 text-sm">Experience the future of autonomous care. Reserve your private showcase today.</p>
-          <Link to="/showcase" className="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          <a href="https://www.eventbrite.com/e/clean-box-showcase-tickets-1998423489453" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">
             Reserve Showcase Access
-          </Link>
+          </a>
         </div>
       </article>
       <Footer />
