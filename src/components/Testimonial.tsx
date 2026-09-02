@@ -16,7 +16,7 @@ const Testimonial = () => {
 
         <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-border shadow-card bg-black">
           <video
-            src="/videos/testimonial.mp4"
+            src={`${import.meta.env.BASE_URL}videos/testimonial.mp4`}
             controls
             playsInline
             className="w-full aspect-video"
