@@ -7,10 +7,10 @@ const Testimonial = () => {
             In Their Words
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-            Hear it from someone who's used it.
+            "It's huge, for her dignity."
           </h2>
           <p className="mt-6 text-lg text-gray-500">
-            Real feedback, straight from a real Clean Box experience.
+            A caregiver and a healthcare worker on what Clean Box means for the people they care for.
           </p>
         </div>
 
