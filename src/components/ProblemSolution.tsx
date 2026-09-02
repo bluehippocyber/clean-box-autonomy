@@ -12,6 +12,12 @@ const solutions = [
   "Dignity is built into every step. Private. Comfortable. Automated. Designed for the person, not just the process.",
 ];
 
+const productPhotos = [
+  `${import.meta.env.BASE_URL}product-photos/wave-angle-1.png`,
+  `${import.meta.env.BASE_URL}product-photos/wave-angle-2.png`,
+  `${import.meta.env.BASE_URL}product-photos/wave-angle-3.png`,
+];
+
 const ProblemSolution = () => {
   return (
     <>
@@ -57,6 +63,17 @@ const ProblemSolution = () => {
                 <CheckCircle className="w-6 h-6 text-primary mb-4" />
                 <p className="text-sm text-foreground/80 leading-relaxed">{s}</p>
               </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 items-end">
+            {productPhotos.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt="Clean Box Wave prototype"
+                className="w-full h-auto object-contain max-h-72 mx-auto"
+              />
             ))}
           </div>
         </div>
