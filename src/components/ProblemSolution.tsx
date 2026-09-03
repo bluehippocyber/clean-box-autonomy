@@ -12,6 +12,8 @@ const solutions = [
   "Dignity is built into every step. Private. Comfortable. Automated. Designed for the person, not just the process.",
 ];
 
+const productPhoto = `${import.meta.env.BASE_URL}product-photos/wave-angle-2.png`;
+
 const ProblemSolution = () => {
   return (
     <>
@@ -58,6 +60,36 @@ const ProblemSolution = () => {
                 <p className="text-sm text-foreground/80 leading-relaxed">{s}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 rounded-3xl border border-border bg-card overflow-hidden">
+            <div className="grid md:grid-cols-2 items-center">
+              <div
+                className="relative flex items-center justify-center px-8 py-16 md:py-24"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, hsl(var(--primary-soft)) 0%, transparent 70%)",
+                }}
+              >
+                <img
+                  src={productPhoto}
+                  alt="Clean Box Wave prototype"
+                  className="w-full max-w-xs md:max-w-sm h-auto object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)]"
+                />
+              </div>
+              <div className="p-8 md:p-12 border-t md:border-t-0 md:border-l border-border">
+                <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">
+                  The Hardware
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                  The Clean Box Wave, in production.
+                </h3>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  This is the actual unit — built, wired, and being tested ahead of rollout.
+                  Not a render. Not a concept. The real hardware behind the system.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
