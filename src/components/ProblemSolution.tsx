@@ -12,6 +12,8 @@ const solutions = [
   "Dignity is built into every step. Private. Comfortable. Automated. Designed for the person, not just the process.",
 ];
 
+const studioPhoto = `${import.meta.env.BASE_URL}product-photos/wave-angle3-studio.png`;
+
 const ProblemSolution = () => {
   return (
     <>
@@ -41,15 +43,27 @@ const ProblemSolution = () => {
       {/* Solution — dark bg: foreground works fine */}
       <section className="py-24 lg:py-32 bg-surface-clinical">
         <div className="container">
-          <div className="max-w-2xl mb-12">
-            <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">The Solution</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-              Meet Clean Box.{" "}
-              <span className="text-primary">Dignity through innovation.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              A seated automated bathing system engineered for comfort, safety, and efficiency — built to transform the most intimate care task into a seamless, independent experience.
-            </p>
+          <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div className="max-w-2xl">
+              <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">The Solution</div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+                Meet Clean Box.{" "}
+                <span className="text-primary">Dignity through innovation.</span>
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground">
+                A seated automated bathing system engineered for comfort, safety, and efficiency — built to transform the most intimate care task into a seamless, independent experience.
+              </p>
+            </div>
+            {/* Small product shot, right-aligned. White backing so its
+                near-white studio backdrop tiers cleanly into the frame
+                instead of clashing with the dark section. */}
+            <div className="shrink-0 self-center md:self-end rounded-2xl bg-white p-3 shadow-card">
+              <img
+                src={studioPhoto}
+                alt="Clean Box Wave prototype"
+                className="w-32 md:w-44 h-auto object-contain"
+              />
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {solutions.map((s, i) => (
