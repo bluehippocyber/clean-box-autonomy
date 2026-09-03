@@ -12,8 +12,6 @@ const solutions = [
   "Dignity is built into every step. Private. Comfortable. Automated. Designed for the person, not just the process.",
 ];
 
-const productPhoto = `${import.meta.env.BASE_URL}product-photos/wave-angle-2.png`;
-
 const ProblemSolution = () => {
   return (
     <>
@@ -60,14 +58,6 @@ const ProblemSolution = () => {
                 <p className="text-sm text-foreground/80 leading-relaxed">{s}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-16 flex justify-center">
-            <img
-              src={productPhoto}
-              alt="Clean Box Wave prototype"
-              className="w-full max-w-xl h-auto object-contain"
-            />
           </div>
         </div>
       </section>
