@@ -3,6 +3,16 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Target, Heart, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const supporters = [
+  "Terri King",
+  "Joseph Benniefield",
+  "Dajuanna Diggins",
+  "Mesha Downing",
+  "Conchita West",
+  "Carolyn King",
+  "Jojo",
+];
+
 const values = [
   { icon: Heart, title: "Dignity First", desc: "Every design decision starts with one question: does this restore dignity to the person using it?" },
   { icon: Shield, title: "Safety by Design", desc: "Engineered to eliminate fall risk, caregiver strain, and hygiene gaps in every care environment." },
@@ -73,6 +83,33 @@ const About = () => {
                 <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supporters */}
+      <section className="py-20 bg-surface-clinical border-t border-border overflow-hidden">
+        <div className="container text-center mb-10">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-primary mb-4">With Gratitude</div>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            Thank you to those who believed in this from day one.
+          </h2>
+        </div>
+        <div
+          className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+          role="list"
+          aria-label="Clean Box supporters and donors"
+        >
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            {[...supporters, ...supporters].map((name, i) => (
+              <span
+                key={`${name}-${i}`}
+                role="listitem"
+                className="mx-4 shrink-0 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground"
+              >
+                {name}
+              </span>
             ))}
           </div>
         </div>
